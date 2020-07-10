@@ -7,12 +7,26 @@
 module.exports = {
   /* Your site config here */
   plugins: [
-    `gatsby-plugin-sass`,
     {
-      resolve: "gatsby-plugin-web-font-loader",
+      resolve: "gatsby-plugin-sass",
       options: {
-        google: {
-          families: ["Droid Sans", "Quicksand"],
+        data: `@import "${__dirname}/src/styles/styles";`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-webfonts`,
+      options: {
+        fonts: {
+          google: [
+            {
+              family: "Roboto",
+              variants: ["300", "400", "500"],
+            },
+            {
+              family: "Quicksand",
+              variants: ["300","400", "700"],
+            },
+          ],
         },
       },
     },

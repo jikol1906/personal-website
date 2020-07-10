@@ -1,0 +1,22 @@
+.header {
+  grid-column: full-start / full-end;
+  grid-row: 1/3;
+  // background-color: $dark-cornflower-blue;
+  // background-color: $star-command-blue;
+  background-image: linear-gradient(
+    to bottom right,
+    $star-command-blue,
+    $cerulean-crayola
+  );
+  padding: 8rem;
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+  z-index: -1;
+}
+
+.heading {
+  animation: moveInLeft 1s ease-in-out;
+}
+
+.subheading {
+  animation: moveInRight 1s ease-in-out;
+}

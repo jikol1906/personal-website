@@ -1,24 +1,4 @@
-$bp-largest: 75em;
-$bp-large: 62.5em;
-$bp-medium: 50em;
-$bp-small: 37.5em;
 
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit;
-}
-
-html {
-  box-sizing: border-box;
-  font-size: 62.5%;
-}
-
-body {
-  font-family: 'Quicksand', sans-serif;
-}
 
 .container {
   display: grid;
