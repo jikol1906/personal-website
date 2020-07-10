@@ -4,6 +4,10 @@ import styles from './navMenu.module.scss'
 
 export default function NavMenu() {
 
+  const closeNavBar = () => {
+    
+  }
+
   return (
     <div className={styles.navigation}>
       <NavToggleButton />
@@ -11,7 +15,7 @@ export default function NavMenu() {
         <ul className={styles.list}>
           <NavItem to="/">Home</NavItem>
           <NavItem to="/side-projects">Personal Projects</NavItem>
-          <NavItem to="#">Something else</NavItem>
+          <NavItem to="#">Other</NavItem>
         </ul>
       </nav>
     </div>
