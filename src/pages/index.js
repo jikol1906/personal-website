@@ -2,5 +2,7 @@ import React from "react"
 import Layout from '../Components/layout'
 
 export default function Home() {
-  return <Layout>Hello world!</Layout>
+  return <Layout>
+    <h1>Hello world</h1>
+  </Layout>
 }
