@@ -1,0 +1,31 @@
+$bp-largest: 75em;
+$bp-large: 62.5em;
+$bp-medium: 50em;
+$bp-small: 37.5em;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  height: 100%;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+}
+
+.container {
+  display: grid;
+  grid-template-columns:
+    [full-start] minmax(2rem, 1fr)
+    [center-start] repeat(6, minmax(min-content, 15rem)) [center-end]
+    minmax(2rem, 1fr) [full-end];
+  grid-template-rows: 80vh 15rem minmax(25vh,max-content);
+}
