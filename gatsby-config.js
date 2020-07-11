@@ -19,10 +19,6 @@ module.exports = {
         fonts: {
           google: [
             {
-              family: "Roboto",
-              variants: ["300", "400", "500"],
-            },
-            {
               family: "Quicksand",
               variants: ["300","400", "700"],
             },

@@ -5,12 +5,13 @@
   // background-color: $star-command-blue;
   background-image: linear-gradient(
     to bottom right,
-    $star-command-blue,
-    $cerulean-crayola
+    #134074,
+    #13315C
   );
+  // background:#003049;
   padding: 8rem;
   clip-path: polygon(0 0, 100% 0, 100% 50vh, 0 100%);
-  z-index: -1;
+  z-index: 2;
 }
 
 .heading {

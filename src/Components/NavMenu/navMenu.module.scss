@@ -1,5 +1,6 @@
 .navigation {
   position: fixed;
+  z-index:3
 }
 
 .checkbox {
@@ -114,7 +115,6 @@
   height: 6rem;
   width: 6rem;
   background-color: white;
-  z-index: 1000;
   border-radius: 50%;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
   right: 6rem;
@@ -129,6 +129,6 @@
   }
 
   &:hover {
-    transform: scale(1.04) translateY(-5px);
+    transform: scale(1.09) translateY(-7px);
   }
 }

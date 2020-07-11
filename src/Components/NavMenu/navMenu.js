@@ -5,13 +5,14 @@ import styles from './navMenu.module.scss'
 export default function NavMenu() {
 
   const closeNavBar = () => {
-    
+    const checkbox = document.getElementById("navi-toggle");
+    checkbox.checked = false;
   }
 
   return (
     <div className={styles.navigation}>
       <NavToggleButton />
-      <nav className={styles.nav}>
+      <nav onClick={closeNavBar} className={styles.nav}>
         <ul className={styles.list}>
           <NavItem to="/">Home</NavItem>
           <NavItem to="/side-projects">Personal Projects</NavItem>
