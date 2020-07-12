@@ -5,12 +5,12 @@
   // background-color: $star-command-blue;
   background-image: linear-gradient(
     to bottom right,
-    #134074,
-    #13315C
+    $color-primary,
+    $color-secondary
   );
   // background:#003049;
   padding: 8rem;
-  clip-path: polygon(0 0, 100% 0, 100% 50vh, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 65vh, 0 100%);
   z-index: 2;
 }
 

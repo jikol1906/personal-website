@@ -37,7 +37,7 @@ function NavToggleButton() {
   return (
     <React.Fragment>
       <input type="checkbox" className={styles.checkbox} id="navi-toggle" />
-      <label for="navi-toggle" className={styles.button}>
+      <label htmlFor="navi-toggle" className={styles.button}>
         <span className={styles.icon}>&nbsp;</span>
       </label>
     </React.Fragment>
