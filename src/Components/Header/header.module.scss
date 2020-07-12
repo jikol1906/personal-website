@@ -10,7 +10,7 @@
   );
   // background:#003049;
   padding: 8rem;
-  clip-path: polygon(0 0, 100% 0, 100% 65vh, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100vh - 15rem), 0 100%);
   z-index: 2;
 }
 
