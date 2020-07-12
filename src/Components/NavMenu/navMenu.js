@@ -1,12 +1,12 @@
 import React from "react"
-import { Link } from 'gatsby'
-import styles from './navMenu.module.scss'
+import { Link } from "gatsby"
+import styles from "./navMenu.module.scss"
+import scrollTo from "gatsby-plugin-smoothscroll"
 
 export default function NavMenu() {
-
   const closeNavBar = () => {
-    const checkbox = document.getElementById("navi-toggle");
-    checkbox.checked = false;
+    const checkbox = document.getElementById("navi-toggle")
+    checkbox.checked = false
   }
 
   return (
@@ -14,9 +14,9 @@ export default function NavMenu() {
       <NavToggleButton />
       <nav onClick={closeNavBar} className={styles.nav}>
         <ul className={styles.list}>
-          <NavItem to="/">Home</NavItem>
-          <NavItem to="/side-projects">Personal Projects</NavItem>
-          <NavItem to="#">Other</NavItem>
+          <NavItem to="home">Home</NavItem>
+          <NavItem to="about">About</NavItem>
+          <NavItem to="educations">Educations</NavItem>
         </ul>
       </nav>
     </div>
@@ -26,9 +26,9 @@ export default function NavMenu() {
 function NavItem({ children, to }) {
   return (
     <li className={styles.item}>
-      <Link to={to} className={styles.link}>
+      <button className={styles.link} onClick={() => scrollTo(`#${to}`)}>
         {children}
-      </Link>
+      </button>
     </li>
   )
 }

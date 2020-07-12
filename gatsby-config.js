@@ -7,6 +7,7 @@
 module.exports = {
   /* Your site config here */
   plugins: [
+    `gatsby-plugin-smoothscroll`,
     {
       resolve: "gatsby-plugin-sass",
       options: {

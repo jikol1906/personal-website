@@ -4,7 +4,7 @@ import HeadingTwo from "../../Typography/HeadingTwo/headingTwo"
 
 export default function AboutMe() {
   return (
-    <section className={styles.about}>
+    <section id="about" className={styles.about}>
       <HeadingTwo underlined>About Me</HeadingTwo>
       <p className={styles.text}>
         Jeg studerer Softwareteknologi (Diplomingeniør) på DTU. Programmering er
