@@ -6,5 +6,5 @@
     [full-start] minmax(2rem, 1fr)
     [center-start] repeat(6, minmax(min-content, 15rem)) [center-end]
     minmax(2rem, 1fr) [full-end];
-  grid-template-rows: 50vh 50vh minmax(25vh,max-content);
+  grid-template-rows: 50vh 50vh minmax(25vh,max-content) 40rem;
 }

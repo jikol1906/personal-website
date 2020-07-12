@@ -1,0 +1,13 @@
+.education {
+    grid-column: 1/-1;
+    background-color: aqua;
+    padding:8rem;
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+}
+
+.timeline {
+    grid-column: 2/4;
+    border-left: 3px dotted black;
+    justify-self: center;
+}
