@@ -7,11 +7,12 @@ export default function AboutMe() {
     <section id="about" className={styles.about}>
       <HeadingTwo underlined>About Me</HeadingTwo>
       <p className={styles.text}>
-        Jeg studerer Softwareteknologi (Diplomingeniør) på DTU. Programmering er
+        {/* Jeg studerer Softwareteknologi (Diplomingeniør) på DTU. Programmering er
         en af mine store passioner, og har, lige siden jeg startede, altid
         interesseret mig. Når jeg står over for en løsning, der skal
         implementeres, så ser jeg en spændende, intellektuel udfordring, og ikke
-        bare en ny kedelig arbejdsopgave, der skal overstås.
+        bare en ny kedelig arbejdsopgave, der skal overstås. */}
+        I study Software Technology at DTU
       </p>
     </section>
   )
