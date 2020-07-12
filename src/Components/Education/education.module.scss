@@ -1,13 +1,63 @@
 .education {
-    grid-column: 1/-1;
-    background-color: aqua;
-    padding:8rem;
-    display:grid;
-    grid-template-columns: repeat(4,1fr);
+  grid-column: 1/-1;
+  background-image: linear-gradient(
+    to bottom right,
+    $color-primary,
+    $color-secondary
+  );
+  padding: 8rem;
+  display: grid;
+  align-items: flex-start;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(10,min-content);
+  grid-gap: 4rem;
+}
+
+.heading {
+    grid-column:1/-1;
+    grid-row:1/2;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: .4rem;
 }
 
 .timeline {
-    grid-column: 2/4;
-    border-left: 3px dotted black;
-    justify-self: center;
+  grid-column: 2/4;
+  grid-row:2/-1;
+  border-left: 1rem dotted #f4f4f4;
+  justify-self: center;
+  align-self: stretch;
+}
+
+.event {
+    background-color: #eee;
+    position:relative;
+    width: 45%;
+    padding:3rem;
+    box-shadow:$shadow-dark;
+    border-radius: 10px;
+    grid-column: 1/-1;
+
+
+    
+
+    &::after {
+        content:'';
+        position:absolute;
+        display: block;
+        height:3rem;
+        top: 50%;
+        right: -13px;
+        transform: translateY(-50%) rotate(45deg);
+        width:3rem;
+        background-color:#eee;
+    }
+
+    &--right {
+        &::after {
+            left: -13px;
+        }
+
+        justify-self: right;
+    }
 }
