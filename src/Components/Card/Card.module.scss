@@ -1,0 +1,12 @@
+.card {
+  background: #fff;
+  padding: 2rem;
+  display: grid;
+  border-radius: 10px;
+  box-shadow: $shadow-light;
+  justify-items: center;
+
+  img {
+    width: 50%;
+  }
+}

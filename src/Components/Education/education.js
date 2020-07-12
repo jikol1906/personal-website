@@ -11,18 +11,18 @@ export default function Education() {
       <div className={styles.timeline}></div>
       <div className={styles.column}> 
         <TimelineEvent>
-          <HeadingTwo underlined>2016-2018</HeadingTwo>
+          <HeadingTwo underlined>2016 - 2018</HeadingTwo>
           <img src={kea} />
           <p>I studied at KEA (Københavns Erhvervsakademi) from 2016 to 2018</p>
         </TimelineEvent>
         <TimelineEvent>
-          <HeadingTwo underlined>2012-2015</HeadingTwo>
+          <HeadingTwo underlined>2012 - 2015</HeadingTwo>
           <p>High School at Gentofte Studenterkursus</p>
         </TimelineEvent>
       </div>
       <div className={`${styles.column} ${styles.columnRight}`}>
         <TimelineEvent right gridRow={2}>
-          <HeadingTwo underlined>2018 - Until Now</HeadingTwo>
+          <HeadingTwo underlined>Since 2018</HeadingTwo>
           <img src={dtu} />
           <p>
             Up until now I've been studying at DTU (Technical University of
@@ -30,7 +30,7 @@ export default function Education() {
           </p>
         </TimelineEvent>
         <TimelineEvent right gridRow={2}>
-          <HeadingTwo underlined>2015-2016</HeadingTwo>
+          <HeadingTwo underlined>2015 - 2016</HeadingTwo>
           <p>
             Supplementary courses like Math
           </p>

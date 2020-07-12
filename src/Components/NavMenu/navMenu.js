@@ -17,6 +17,7 @@ export default function NavMenu() {
           <NavItem to="home">Home</NavItem>
           <NavItem to="about">About</NavItem>
           <NavItem to="educations">Educations</NavItem>
+          <NavItem to="competences">Competences</NavItem>
         </ul>
       </nav>
     </div>
