@@ -3,11 +3,6 @@
     grid-column: 1/-1;
     padding: 20rem 8rem;
     background-color: $color-secondary;
-
-
-    // h2 {
-    //     grid-column: 1/-1;
-    // }
 }
 
 .cards {
@@ -15,6 +10,6 @@
     margin-top:4rem;
 
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(20rem,1fr));
+    grid-template-columns: repeat(auto-fit,minmax(25rem,1fr));
     grid-gap:3rem;
 }

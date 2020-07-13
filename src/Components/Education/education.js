@@ -1,8 +1,6 @@
 import React from "react"
 import styles from "./education.module.scss"
 import HeadingTwo from "../../Typography/HeadingTwo/headingTwo"
-import kea from "../../kea.png"
-import dtu from "../../dtu.png"
 
 export default function Education() {
   return (
@@ -12,7 +10,7 @@ export default function Education() {
       <div className={styles.column}> 
         <TimelineEvent>
           <HeadingTwo underlined>2016 - 2018</HeadingTwo>
-          <img src={kea} />
+          {/* <img src={kea} /> */}
           <p>I studied at KEA (Københavns Erhvervsakademi) from 2016 to 2018</p>
         </TimelineEvent>
         <TimelineEvent>
@@ -23,7 +21,7 @@ export default function Education() {
       <div className={`${styles.column} ${styles.columnRight}`}>
         <TimelineEvent right gridRow={2}>
           <HeadingTwo underlined>Since 2018</HeadingTwo>
-          <img src={dtu} />
+          {/* <img src={dtu} /> */}
           <p>
             Up until now I've been studying at DTU (Technical University of
             Denmark)
