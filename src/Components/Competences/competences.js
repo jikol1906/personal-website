@@ -45,7 +45,7 @@ export default function Competences() {
       <HeadingTwo underlined black>
         Competences
       </HeadingTwo>
-      <HeadingTwo black>Programming langauges</HeadingTwo>
+      <HeadingTwo black>Technologies / Programming Langauges</HeadingTwo>
       <div className={styles.cards}>{CompetencesJSON.languages}</div>
       <HeadingTwo black>Frameworks/Libraries</HeadingTwo>
       <div className={styles.cards}>{CompetencesJSON.frameworks}</div>

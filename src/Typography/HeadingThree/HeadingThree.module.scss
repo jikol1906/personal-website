@@ -1,0 +1,13 @@
+.heading {
+  font-size: 3rem;
+  color: #fff;
+  font-weight: 300;
+
+  &--black {
+    color: #000;
+  }
+}
+
+.underlined {
+  border-bottom: 1px solid currentColor;
+}

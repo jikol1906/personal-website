@@ -3,11 +3,36 @@
     {
       "img": "JS.png",
       "title": "Javascript",
-      "text": "I have extensive knowledge in Javascript, "
+      "text": ""
+    },
+    {
+      "img": "Node.png",
+      "title": "Node.js",
+      "text": ""
+    },
+    {
+      "img": "Typescript.png",
+      "title": "Typescript",
+      "text": ""
+    },
+    {
+      "img": "Html.png",
+      "title": "HTML",
+      "text": ""
+    },
+    {
+      "img": "Css.png",
+      "title": "CSS",
+      "text": "I have a "
     },
     {
       "img": "java.png",
       "title": "Java",
+      "text": ""
+    },
+    {
+      "img": "Csharp.png",
+      "title": "C#/ASP.NET Core",
       "text": ""
     }
   ],
@@ -15,7 +40,12 @@
     {
       "img": "react.png",
       "title": "React",
-      "text": "I have worked a lot with react and have created a couple of personal projects with it"
+      "text": "I have extensive knowledge in React and have used it for most of my personal projects. I have for example built this page using Gatsby.js which is based on React"
+    },
+    {
+      "img": "Angular.png",
+      "title": "Angular",
+      "text": ""
     }
   ],
   "versionControl": [
