@@ -3,13 +3,18 @@
     grid-column: 1/-1;
     padding: 20rem 8rem;
     background-color: $color-secondary;
+    display:grid;
+    grid-row-gap: 4rem;
+
+    & h2:not(:first-child) {
+        text-align: center;
+    }
+
 }
 
 .cards {
 
-    margin-top:4rem;
-
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(25rem,1fr));
+    grid-template-columns: repeat(auto-fill,minmax(25rem,1fr));
     grid-gap:3rem;
 }

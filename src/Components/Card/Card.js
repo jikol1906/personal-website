@@ -6,8 +6,8 @@ import Img from "gatsby-image"
 export default function Card({ img, title, text }) {
   return (
     <div className={styles.card}>
-      <Img fixed={img}/>
       <HeadingTwo black>{title}</HeadingTwo>
+      <Img fixed={img} />
       <p>{text}</p>
     </div>
   )

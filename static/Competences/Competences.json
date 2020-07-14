@@ -1,0 +1,28 @@
+{
+  "languages": [
+    {
+      "img": "JS.png",
+      "title": "Javascript",
+      "text": "I have extensive knowledge in Javascript, "
+    },
+    {
+      "img": "java.png",
+      "title": "Java",
+      "text": ""
+    }
+  ],
+  "frameworks": [
+    {
+      "img": "react.png",
+      "title": "React",
+      "text": "I have worked a lot with react and have created a couple of personal projects with it"
+    }
+  ],
+  "versionControl": [
+    {
+      "img": "git.png",
+      "title": "Git",
+      "text": ""
+    }
+  ]
+}

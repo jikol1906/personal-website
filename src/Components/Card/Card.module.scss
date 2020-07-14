@@ -4,7 +4,13 @@
   display: grid;
   border-radius: 10px;
   box-shadow: $shadow-light;
-  justify-content: center;
-  grid-template-rows: 20rem;
+  justify-items: center;
+  align-items: center;
+  grid-gap: 2rem;
+
+  p {
+    font-size: 1.6rem;
+    text-align: center;
+  }
 
 }
