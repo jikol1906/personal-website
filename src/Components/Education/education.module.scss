@@ -8,6 +8,7 @@
   );
   clip-path: polygon(0 15rem, 100% 0, 100% 100%, 0 calc(100% - 15rem));
   padding: 30rem 8rem;
+  padding-top: 20rem;
   display: grid;
   align-items: flex-start;
   grid-template-columns: repeat(4, 1fr);

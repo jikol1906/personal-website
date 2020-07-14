@@ -1,10 +1,10 @@
     import React from "react"
-    import "./layout.scss"
+    import styles from "./layout.module.scss"
     import NavMenu from "./NavMenu/navMenu"
 
     export default function Layout({ children }) {
       return (
-        <div className="container">
+        <div className={styles.container}>
           <NavMenu />
           {children}
         </div>
