@@ -46,6 +46,11 @@
       "img": "Angular.png",
       "title": "Angular",
       "text": ""
+    },
+    {
+      "img": "Express.png",
+      "title": "ExpressJS",
+      "text": ""
     }
   ],
   "versionControl": [

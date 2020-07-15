@@ -100,7 +100,7 @@
 .link {
   display: inline-block;
   background: none;
-  border:none;
+  border: none;
   padding: 1rem 2rem;
   font-size: 3rem;
   text-decoration: none;
@@ -124,9 +124,9 @@
   text-align: center;
   z-index: 4;
 
-  &:active {
-    transform: scale(0.2) translateY(-3px);
-    box-shadow: 0 0.8rem 2rem rgba(0, 0, 0, 0.2);
+  @media only screen and (max-width: $bp-small) {
+    right: 3rem;
+    top: 3rem;
   }
 
   &:hover {

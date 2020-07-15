@@ -14,7 +14,7 @@ export default function Competences() {
           id
           base
           childImageSharp {
-            fixed(width: 150) {
+            fixed(height: 100) {
               ...GatsbyImageSharpFixed
             }
           }

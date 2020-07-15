@@ -10,10 +10,10 @@ export default function Home({data}) {
   return (
     <Layout>
       <SEO title={'Boris Grunwald - Software Developer'}/>
-      {/* <Header />
-      <AboutMe/> */}
+      <Header />
+      <AboutMe/>
       <Education/>
-      {/* <Competences/> */}
+      <Competences/>
     </Layout>
   )
 }

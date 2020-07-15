@@ -1,6 +1,6 @@
 .competences {
     grid-row:6/8;
-    grid-column: center-start/center-end;
+    grid-column: full-start/full-end;
     padding: 20rem 8rem;
     background-color: $color-secondary;
     display:grid;
@@ -10,10 +10,14 @@
         text-align: center;
     }
 
+    @media only screen and (max-width:$bp-small) {
+        padding: 20rem 3rem;
+    }
+
 }
 
 .cards {
     display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(30rem,1fr));
+    grid-template-columns: repeat(auto-fill,minmax(25rem,1fr));
     grid-gap:3rem;
 }
