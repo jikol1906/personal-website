@@ -10,8 +10,6 @@ export default function HeadingThree({children,otherStyles,black}) {
       theStyles.push(otherStyles)
     }
 
-    console.log(theStyles)
-
     return (
         <h3 className={theStyles.join(' ')}>
             {children}

@@ -9,11 +9,11 @@ import SEO from '../Components/seo'
 export default function Home({data}) {
   return (
     <Layout>
-      <SEO title={'Boris Grunwald - Software Developer'} description/>
-      <Header />
-      <AboutMe/>
+      <SEO title={'Boris Grunwald - Software Developer'}/>
+      {/* <Header />
+      <AboutMe/> */}
       <Education/>
-      <Competences/>
+      {/* <Competences/> */}
     </Layout>
   )
 }
