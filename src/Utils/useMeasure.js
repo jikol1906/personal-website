@@ -1,12 +1,13 @@
 import { useLayoutEffect, useState } from "react"
 
-export default ref => {
+export default (ref, offset = 0) => {
+  
   const [elemIsInViewport, setElemIsInViewport] = useState(false)
 
   useLayoutEffect(() => {
     let elemTop = ref.current.getBoundingClientRect().top
     const onScroll = () => {
-      const scrollPos = window.innerHeight + window.scrollY
+      const scrollPos = window.innerHeight + window.scrollY - offset
       if (elemTop < scrollPos) {
         setElemIsInViewport(true)
         window.removeEventListener("scroll", onScroll)

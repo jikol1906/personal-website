@@ -15,7 +15,7 @@ export default function Education() {
   const [smallerScreen, setSmallerScreen] = useState(false)
   const timeLineRef = useRef()
 
-  const timeLineIsInView = useMeasure(timeLineRef)
+  const timeLineIsInView = useMeasure(timeLineRef,400)
 
   useEffect(() => {
     const list = window.matchMedia("(max-width: 56.25em)")
@@ -60,27 +60,37 @@ export default function Education() {
         </div>
       ) : (
         <React.Fragment>
-          <div className={styles.column}>
-            <TimelineEvent show={timeLineIsInView}>
+          <div
+            className={styles.column}
+            style={
+              !timeLineIsInView ? fadeInLeftCornerExited : fadeInEnteredDelay
+            }
+          >
+            <TimelineEvent>
               <HeadingTwo underlined>2016 - 2018</HeadingTwo>
               <p>
                 I studied at KEA (Københavns Erhvervsakademi) from 2016 to 2018
               </p>
             </TimelineEvent>
-            <TimelineEvent show={timeLineIsInView}>
+            <TimelineEvent>
               <HeadingTwo underlined>2012 - 2015</HeadingTwo>
               <p>High School at Gentofte Studenterkursus</p>
             </TimelineEvent>
           </div>
-          <div className={`${styles.column} ${styles.columnRight}`}>
-            <TimelineEvent show={timeLineIsInView} right>
+          <div
+            style={
+              !timeLineIsInView ? fadeInRightCornerExited : fadeInEnteredDelay
+            }
+            className={`${styles.column} ${styles.columnRight}`}
+          >
+            <TimelineEvent right>
               <HeadingTwo underlined>Since 2018</HeadingTwo>
               <p>
                 Up until now I've been studying at DTU (Technical University of
                 Denmark)
               </p>
             </TimelineEvent>
-            <TimelineEvent show={timeLineIsInView} right>
+            <TimelineEvent right>
               <HeadingTwo underlined>2015 - 2016</HeadingTwo>
               <p>Supplementary courses like Math</p>
             </TimelineEvent>
@@ -91,15 +101,8 @@ export default function Education() {
   )
 }
 
-function TimelineEvent({ children, right, show }) {
+function TimelineEvent({ children, right }) {
   const theStyles = [styles.event]
   right && theStyles.push(styles.eventRight)
-  
-  const style = show
-    ? fadeInEnteredDelay
-    : right
-    ? fadeInRightCornerExited
-    : fadeInLeftCornerExited
-  
-  return <div style={style} className={theStyles.join(" ")}>{children}</div>
+  return <div className={theStyles.join(" ")}>{children}</div>
 }

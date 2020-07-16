@@ -1,6 +1,5 @@
 const fadeInExited = {
     opacity:'0',
-    visibility:'hidden',
 }
 
 export const fadeInLeftExited = {
@@ -29,7 +28,8 @@ export const fadeInRightCornerExited = {
 }
 
 export const fadeInEntered = {
-    transition:'all .7s ease-out',
+    transitionProperty: 'transform, opacity',
+    transition:'.7s ease-out',
     transform:'translate(0) scale(1)',
     opacity:'1'
 }
@@ -41,7 +41,7 @@ export const fadeInEnteredDelay = {
 
 export const fadeInEnteredLargeDelay = {
     ...fadeInEntered,
-    transitionDelay:'.4s',
+    transitionDelay:'.5s',
 }
 
 
