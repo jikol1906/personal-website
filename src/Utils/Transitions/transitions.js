@@ -13,9 +13,19 @@ export const fadeInTopExited = {
     opacity:'0'
 }
 
+export const fadeInLeftCornerExited = { 
+    transform:'translate(-20vw,20vh) scale(.8)',
+    opacity:'0'
+}
+
+export const fadeInRightCornerExited = { 
+    transform:'translate(-20vw,20vh) scale(.8)',
+    opacity:'0'
+}
+
 export const fadeInEntered = {
-    transition:'all .5s',
-    transform:'translate(0)',
+    transition:'all .7s',
+    transform:'translate(0) scale(1)',
     opacity:'1'
 }
 
