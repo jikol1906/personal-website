@@ -6,7 +6,7 @@
   z-index: 1;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  transition: all .9s;
+  
 
   h2 {
     grid-column: 1/-1;
@@ -19,6 +19,7 @@
   padding: 2rem;
   grid-row: 2/3;
   grid-column: 1/2;
+  transition: all .9s;
 }
 
 .details-list {
@@ -27,6 +28,8 @@
     list-style: none;
     grid-column:2/3;
     grid-row:2/3;
+    transition: all .9s;
+    transition-delay: .3s;
 
    li:not(:last-child) {
        margin-bottom: 1rem;
