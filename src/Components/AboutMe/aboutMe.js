@@ -5,14 +5,15 @@ import useMeasure from "../../Utils/useMeasure"
 import {
   fadeInLeftExited,
   fadeInRightExited,
+  fadeInTopExited,
   fadeInEntered,
-} from "../../Utils/Animations/animations"
+  fadeInEnteredDelay,
+  fadeInEnteredLargeDelay,
+} from "../../Utils/Transitions/transitions"
 
 export default function AboutMe() {
   const pRef = useRef()
   const isInViewport = useMeasure(pRef)
-
-  console.log("is in viewport", isInViewport)
 
   const calculateAge = () => {
     var diff_ms = Date.now() - new Date(1993, 12, 4).getTime()
@@ -22,7 +23,11 @@ export default function AboutMe() {
 
   return (
     <section id="about" className={styles.about}>
-      <HeadingTwo underlined black>
+      <HeadingTwo
+        inlineStyles={!isInViewport ? fadeInTopExited : fadeInEnteredLargeDelay}
+        underlined
+        black
+      >
         About Me
       </HeadingTwo>
       <p
@@ -37,7 +42,10 @@ export default function AboutMe() {
         bare en ny kedelig arbejdsopgave, der skal overstås. I study Software
         Technology at DTU
       </p>
-      <ul className={styles.detailsList} style={!isInViewport ? fadeInRightExited : fadeInEntered}>
+      <ul
+        className={styles.detailsList}
+        style={!isInViewport ? fadeInRightExited : fadeInEnteredDelay}
+      >
         <li>Age: {calculateAge()}</li>
         <li>Email: borisgrunwald@gmail.com</li>
       </ul>
