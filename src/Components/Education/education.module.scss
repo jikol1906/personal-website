@@ -13,6 +13,7 @@
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: max-content;
   grid-gap: 4rem;
+  z-index: 2;
 
   @media only screen and (max-width:$bp-small) {
     padding: 30rem 3rem;
@@ -49,7 +50,7 @@
 .timeline {
   grid-column: 2/4;
   grid-row:2/-1;
-  border-left: 1rem dotted $color-secondary;
+  border-left: 2rem dotted $color-secondary;
   justify-self: center;
   align-self: stretch;
 

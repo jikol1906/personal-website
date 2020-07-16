@@ -30,3 +30,14 @@
     }
   }
   
+
+.fade-in-left-exited {
+  transform: translateX(-100vw);
+  opacity: 0;
+}
+
+.fade-in-left-entered {
+  transform: translateX(0);
+  opacity: 1;
+}
+
