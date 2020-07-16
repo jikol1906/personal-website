@@ -6,6 +6,9 @@ import {
   fadeInTopExited,
   fadeInEntered,
   fadeInEnteredDelay,
+  fadeInRightExited,
+  fadeInRightCornerExited,
+  fadeInLeftCornerExited,
 } from "../../Utils/Transitions/transitions"
 
 export default function Education() {
@@ -39,7 +42,6 @@ export default function Education() {
         <div className={styles.column}>
           <TimelineEvent>
             <HeadingTwo underlined>Since 2018</HeadingTwo>
-            {/* <img src={dtu} /> */}
             <p>
               Up until now I've been studying at DTU (Technical University of
               Denmark)
@@ -59,26 +61,26 @@ export default function Education() {
       ) : (
         <React.Fragment>
           <div className={styles.column}>
-            <TimelineEvent>
+            <TimelineEvent show={timeLineIsInView}>
               <HeadingTwo underlined>2016 - 2018</HeadingTwo>
               <p>
                 I studied at KEA (Københavns Erhvervsakademi) from 2016 to 2018
               </p>
             </TimelineEvent>
-            <TimelineEvent>
+            <TimelineEvent show={timeLineIsInView}>
               <HeadingTwo underlined>2012 - 2015</HeadingTwo>
               <p>High School at Gentofte Studenterkursus</p>
             </TimelineEvent>
           </div>
           <div className={`${styles.column} ${styles.columnRight}`}>
-            <TimelineEvent right>
+            <TimelineEvent show={timeLineIsInView} right>
               <HeadingTwo underlined>Since 2018</HeadingTwo>
               <p>
                 Up until now I've been studying at DTU (Technical University of
                 Denmark)
               </p>
             </TimelineEvent>
-            <TimelineEvent right>
+            <TimelineEvent show={timeLineIsInView} right>
               <HeadingTwo underlined>2015 - 2016</HeadingTwo>
               <p>Supplementary courses like Math</p>
             </TimelineEvent>
@@ -89,9 +91,15 @@ export default function Education() {
   )
 }
 
-function TimelineEvent({ children, right, mtop, gridRow }) {
+function TimelineEvent({ children, right, show }) {
   const theStyles = [styles.event]
   right && theStyles.push(styles.eventRight)
-
-  return <div className={theStyles.join(" ")}>{children}</div>
+  
+  const style = show
+    ? fadeInEnteredDelay
+    : right
+    ? fadeInRightCornerExited
+    : fadeInLeftCornerExited
+  
+  return <div style={style} className={theStyles.join(" ")}>{children}</div>
 }

@@ -1,30 +1,35 @@
-export const fadeInLeftExited = {   
+const fadeInExited = {
+    opacity:'0',
+    visibility:'hidden',
+}
+
+export const fadeInLeftExited = {
+    ...fadeInExited,   
     transform:'translateX(-20vw)',
-    opacity:'0'
 }
 
-export const fadeInRightExited = {  
+export const fadeInRightExited = {
+    ...fadeInExited,  
     transform:'translateX(20vw)',
-    opacity:'0'
 }
 
-export const fadeInTopExited = { 
+export const fadeInTopExited = {
+    ...fadeInExited, 
     transform:'translateY(-20vw)',
-    opacity:'0'
 }
 
-export const fadeInLeftCornerExited = { 
+export const fadeInLeftCornerExited = {
+    ...fadeInExited, 
     transform:'translate(-20vw,20vh) scale(.8)',
-    opacity:'0'
 }
 
-export const fadeInRightCornerExited = { 
-    transform:'translate(-20vw,20vh) scale(.8)',
-    opacity:'0'
+export const fadeInRightCornerExited = {
+    ...fadeInExited, 
+    transform:'translate(20vw,20vh) scale(.8)',
 }
 
 export const fadeInEntered = {
-    transition:'all .7s',
+    transition:'all .7s ease-out',
     transform:'translate(0) scale(1)',
     opacity:'1'
 }
