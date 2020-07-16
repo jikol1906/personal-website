@@ -51,6 +51,11 @@
       "img": "Express.png",
       "title": "ExpressJS",
       "text": ""
+    },
+    {
+      "img": "Gatsby.png",
+      "title": "GatsbyJS",
+      "text": ""
     }
   ],
   "versionControl": [

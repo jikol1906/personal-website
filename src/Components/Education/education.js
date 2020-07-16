@@ -36,12 +36,12 @@ const timeEv = [
 export default function Education() {
   const timeLineRef = useRef()
   const timeLineIsInView = useMeasure(timeLineRef, 400)
-  const matches = useMediaQuery("(max-width: 56.25em)")
+  const matches = useMediaQuery("(max-width: 50em)")
 
   const timeLineEvents = matches ? (
     <div className={styles.column}>
       {timeEv.map(ev => (
-        <TimelineEvent title={ev.title} text={ev.text} />
+        <TimelineEvent key={ev.title} title={ev.title} text={ev.text} />
       ))}
     </div>
   ) : (
@@ -53,7 +53,7 @@ export default function Education() {
         {timeEv
           .filter((e, i) => i % 2 !== 0)
           .map(ev => (
-            <TimelineEvent title={ev.title} text={ev.text} />
+            <TimelineEvent key={ev.title} title={ev.title} text={ev.text} />
           ))}
       </div>
       <div
@@ -63,7 +63,7 @@ export default function Education() {
         {timeEv
           .filter((e, i) => i % 2 === 0)
           .map(ev => (
-            <TimelineEvent right title={ev.title} text={ev.text} />
+            <TimelineEvent right key={ev.title} title={ev.title} text={ev.text} />
           ))}
       </div>
     </>
