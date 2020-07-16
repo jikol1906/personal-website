@@ -32,45 +32,38 @@ export default function Education() {
 
   const timeLineEvents = smallerScreen ? (
     <div className={styles.column}>
-      <TimelineEvent>
-        <HeadingTwo underlined>Since 2018</HeadingTwo>
-        <p>
-          Up until now I've been studying at DTU (Technical University of
-          Denmark)
-        </p>
-      </TimelineEvent>
-      <TimelineEvent>
-        <HeadingTwo underlined>2016 - 2018</HeadingTwo>
-        <p>I studied at KEA (Københavns Erhvervsakademi) from 2016 to 2018</p>
-      </TimelineEvent>
+      <TimelineEvent
+        title="Since 2018"
+        text="Up until now I've been studying at DTU (Technical University of Denmark"
+      />
+      <TimelineEvent
+        title="2016 - 2018"
+        text="I studied at KEA (Københavns Erhvervsakademi) from 2016 to 2018"
+      />
     </div>
   ) : (
     <>
       <div className={styles.column}>
-        <TimelineEvent>
-          <HeadingTwo underlined>Since 2018</HeadingTwo>
-          <p>
-            Up until now I've been studying at DTU (Technical University of
-            Denmark)
-          </p>
-        </TimelineEvent>
-        <TimelineEvent>
-          <HeadingTwo underlined>2016 - 2018</HeadingTwo>
-          <p>I studied at KEA (Københavns Erhvervsakademi) from 2016 to 2018</p>
-        </TimelineEvent>
+        <TimelineEvent
+          title="Since 2018"
+          text="Up until now I've been studying at DTU (Technical University of Denmark"
+        />
+        <TimelineEvent
+          title="2016 - 2018"
+          text="I studied at KEA (Københavns Erhvervsakademi) from 2016 to 2018"
+        />
       </div>
       <div className={`${styles.column} ${styles.columnRight}`}>
-        <TimelineEvent right>
-          <HeadingTwo underlined>Since 2018</HeadingTwo>
-          <p>
-            Up until now I've been studying at DTU (Technical University of
-            Denmark)
-          </p>
-        </TimelineEvent>
-        <TimelineEvent right>
-          <HeadingTwo underlined>2015 - 2016</HeadingTwo>
-          <p>Supplementary courses like Math</p>
-        </TimelineEvent>
+        <TimelineEvent
+          right
+          title="Since 2018"
+          text="Up until now I've been studying at DTU (Technical University of Denmark"
+        />
+        <TimelineEvent
+          right
+          title="2016 - 2018"
+          text="I studied at KEA (Københavns Erhvervsakademi) from 2016 to 2018"
+        />
       </div>
     </>
   )
@@ -88,8 +81,13 @@ export default function Education() {
   )
 }
 
-function TimelineEvent({ children, right }) {
+function TimelineEvent({ children, right, text, title }) {
   const theStyles = [styles.event]
   right && theStyles.push(styles.eventRight)
-  return <div className={theStyles.join(" ")}>{children}</div>
+  return (
+    <div className={theStyles.join(" ")}>
+      <HeadingTwo underlined>{title}</HeadingTwo>
+      <p>{text}</p>
+    </div>
+  )
 }
