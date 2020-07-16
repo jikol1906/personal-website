@@ -11,59 +11,60 @@ import {
   fadeInRightCornerExited,
   fadeInLeftCornerExited,
 } from "../../Utils/Transitions/transitions"
+import useMediaQuery from "../../Utils/useMediaQuery"
+
+const timeEv = [
+  {
+    title: "Since 2018",
+    text:
+      "Up until now I've been studying at DTU (Technical University of Denmark",
+  },
+  {
+    title: "2016 - 2018",
+    text: "I studied at KEA (Københavns Erhvervsakademi) from 2016 to 2018",
+  },
+  {
+    title: "2015 - 2016",
+    text: "Supplementary Courses (Math and Physics)",
+  },
+  {
+    title: "2012 - 2015",
+    text: "High School at Gentofte Studenterkursus",
+  },
+]
 
 export default function Education() {
-  const [smallerScreen, setSmallerScreen] = useState(false)
   const timeLineRef = useRef()
-
   const timeLineIsInView = useMeasure(timeLineRef, 400)
+  const matches = useMediaQuery("(max-width: 56.25em)")
 
-  useEffect(() => {
-    const list = window.matchMedia("(max-width: 56.25em)")
-    const handler = list => {
-      setSmallerScreen(list.matches)
-    }
-    handler(list)
-    list.addListener(handler)
-    return () => {
-      list.removeListener(handler)
-    }
-  }, [])
-
-  const timeLineEvents = smallerScreen ? (
+  const timeLineEvents = matches ? (
     <div className={styles.column}>
-      <TimelineEvent
-        title="Since 2018"
-        text="Up until now I've been studying at DTU (Technical University of Denmark"
-      />
-      <TimelineEvent
-        title="2016 - 2018"
-        text="I studied at KEA (Københavns Erhvervsakademi) from 2016 to 2018"
-      />
+      {timeEv.map(ev => (
+        <TimelineEvent title={ev.title} text={ev.text} />
+      ))}
     </div>
   ) : (
     <>
-      <div className={styles.column}>
-        <TimelineEvent
-          title="Since 2018"
-          text="Up until now I've been studying at DTU (Technical University of Denmark"
-        />
-        <TimelineEvent
-          title="2016 - 2018"
-          text="I studied at KEA (Københavns Erhvervsakademi) from 2016 to 2018"
-        />
+      <div
+        className={styles.column}
+        style={!timeLineIsInView ? fadeInLeftCornerExited : fadeInEntered}
+      >
+        {timeEv
+          .filter((e, i) => i % 2 !== 0)
+          .map(ev => (
+            <TimelineEvent title={ev.title} text={ev.text} />
+          ))}
       </div>
-      <div className={`${styles.column} ${styles.columnRight}`}>
-        <TimelineEvent
-          right
-          title="Since 2018"
-          text="Up until now I've been studying at DTU (Technical University of Denmark"
-        />
-        <TimelineEvent
-          right
-          title="2016 - 2018"
-          text="I studied at KEA (Københavns Erhvervsakademi) from 2016 to 2018"
-        />
+      <div
+        className={`${styles.column} ${styles.columnRight}`}
+        style={!timeLineIsInView ? fadeInRightCornerExited : fadeInEntered}
+      >
+        {timeEv
+          .filter((e, i) => i % 2 === 0)
+          .map(ev => (
+            <TimelineEvent right title={ev.title} text={ev.text} />
+          ))}
       </div>
     </>
   )
