@@ -5,39 +5,18 @@ import useMeasure from "../../Utils/useMeasure"
 import {
   fadeInTopExited,
   fadeInEntered,
-  fadeInEnteredDelay,
   fadeInEnteredLargeDelay,
-  fadeInRightExited,
   fadeInRightCornerExited,
   fadeInLeftCornerExited,
 } from "../../Utils/Transitions/transitions"
 import useMediaQuery from "../../Utils/useMediaQuery"
-
-const timeEv = [
-  {
-    title: "Since 2018",
-    text:
-      "Up until now I've been studying at DTU (Technical University of Denmark",
-  },
-  {
-    title: "2016 - 2018",
-    text: "I studied at KEA (Københavns Erhvervsakademi) from 2016 to 2018",
-  },
-  {
-    title: "2015 - 2016",
-    text: "Supplementary Courses (Math and Physics)",
-  },
-  {
-    title: "2012 - 2015",
-    text: "High School at Gentofte Studenterkursus",
-  },
-]
+import timeEv from '../../../static/TimelineEvents.json'
 
 export default function Education() {
   const timeLineRef = useRef()
   const timeLineIsInView = useMeasure(timeLineRef, 400)
   const matches = useMediaQuery("(max-width: 50em)")
-
+  console.log(JSON.stringify(timeEv))
   const timeLineEvents = matches ? (
     <div className={styles.column}>
       {timeEv.map(ev => (

@@ -46,8 +46,9 @@ export default function AboutMe() {
         className={styles.detailsList}
         style={!isInViewport ? fadeInRightExited : fadeInEnteredDelay}
       >
-        <li>Age: {calculateAge()}</li>
-        <li>Email: borisgrunwald@gmail.com</li>
+        <li><strong>Age:</strong> {calculateAge()}</li>
+        <li><strong>Email:</strong> borisgrunwald@gmail.com</li>
+        <li><strong>Languages:</strong> English/Danish</li>
       </ul>
     </section>
   )
