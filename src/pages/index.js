@@ -13,7 +13,8 @@ export default function Home({data}) {
       <Header />
       <AboutMe/>
       <Education/>
-      {/* <Competences/> */}
+      
+      <Competences/>
     </Layout>
   )
 }

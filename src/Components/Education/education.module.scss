@@ -1,11 +1,7 @@
 .education {
   grid-column: 1/-1;
   grid-row:4/7;
-  background-image: linear-gradient(
-    to bottom right,
-    $color-primary,
-    $color-primary-2
-  );
+  @include primaryGradient;
   clip-path: polygon(0 15rem, 100% 0, 100% 100%, 0 calc(100% - 15rem));
   padding: 30rem 8rem;
   padding-top: 20rem;

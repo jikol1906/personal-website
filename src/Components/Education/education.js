@@ -6,6 +6,7 @@ import {
   fadeInTopExited,
   fadeInEntered,
   fadeInEnteredDelay,
+  fadeInEnteredLargeDelay,
   fadeInRightExited,
   fadeInRightCornerExited,
   fadeInLeftCornerExited,
@@ -15,7 +16,7 @@ export default function Education() {
   const [smallerScreen, setSmallerScreen] = useState(false)
   const timeLineRef = useRef()
 
-  const timeLineIsInView = useMeasure(timeLineRef,400)
+  const timeLineIsInView = useMeasure(timeLineRef, 400)
 
   useEffect(() => {
     const list = window.matchMedia("(max-width: 56.25em)")
@@ -29,74 +30,60 @@ export default function Education() {
     }
   }, [])
 
+  const timeLineEvents = smallerScreen ? (
+    <div className={styles.column}>
+      <TimelineEvent>
+        <HeadingTwo underlined>Since 2018</HeadingTwo>
+        <p>
+          Up until now I've been studying at DTU (Technical University of
+          Denmark)
+        </p>
+      </TimelineEvent>
+      <TimelineEvent>
+        <HeadingTwo underlined>2016 - 2018</HeadingTwo>
+        <p>I studied at KEA (Københavns Erhvervsakademi) from 2016 to 2018</p>
+      </TimelineEvent>
+    </div>
+  ) : (
+    <>
+      <div className={styles.column}>
+        <TimelineEvent>
+          <HeadingTwo underlined>Since 2018</HeadingTwo>
+          <p>
+            Up until now I've been studying at DTU (Technical University of
+            Denmark)
+          </p>
+        </TimelineEvent>
+        <TimelineEvent>
+          <HeadingTwo underlined>2016 - 2018</HeadingTwo>
+          <p>I studied at KEA (Københavns Erhvervsakademi) from 2016 to 2018</p>
+        </TimelineEvent>
+      </div>
+      <div className={`${styles.column} ${styles.columnRight}`}>
+        <TimelineEvent right>
+          <HeadingTwo underlined>Since 2018</HeadingTwo>
+          <p>
+            Up until now I've been studying at DTU (Technical University of
+            Denmark)
+          </p>
+        </TimelineEvent>
+        <TimelineEvent right>
+          <HeadingTwo underlined>2015 - 2016</HeadingTwo>
+          <p>Supplementary courses like Math</p>
+        </TimelineEvent>
+      </div>
+    </>
+  )
+
   return (
     <section id="educations" className={styles.education}>
       <HeadingTwo otherStyles={styles.heading}>My Education</HeadingTwo>
       <div
-        style={!timeLineIsInView ? fadeInTopExited : fadeInEnteredDelay}
+        style={!timeLineIsInView ? fadeInTopExited : fadeInEnteredLargeDelay}
         ref={timeLineRef}
         className={styles.timeline}
       ></div>
-
-      {smallerScreen ? (
-        <div className={styles.column}>
-          <TimelineEvent>
-            <HeadingTwo underlined>Since 2018</HeadingTwo>
-            <p>
-              Up until now I've been studying at DTU (Technical University of
-              Denmark)
-            </p>
-          </TimelineEvent>
-          <TimelineEvent>
-            <HeadingTwo underlined>2016 - 2018</HeadingTwo>
-            <p>
-              I studied at KEA (Københavns Erhvervsakademi) from 2016 to 2018
-            </p>
-          </TimelineEvent>
-          <TimelineEvent>
-            <HeadingTwo underlined>2012 - 2015</HeadingTwo>
-            <p>High School at Gentofte Studenterkursus</p>
-          </TimelineEvent>
-        </div>
-      ) : (
-        <React.Fragment>
-          <div
-            className={styles.column}
-            style={
-              !timeLineIsInView ? fadeInLeftCornerExited : fadeInEnteredDelay
-            }
-          >
-            <TimelineEvent>
-              <HeadingTwo underlined>2016 - 2018</HeadingTwo>
-              <p>
-                I studied at KEA (Københavns Erhvervsakademi) from 2016 to 2018
-              </p>
-            </TimelineEvent>
-            <TimelineEvent>
-              <HeadingTwo underlined>2012 - 2015</HeadingTwo>
-              <p>High School at Gentofte Studenterkursus</p>
-            </TimelineEvent>
-          </div>
-          <div
-            style={
-              !timeLineIsInView ? fadeInRightCornerExited : fadeInEnteredDelay
-            }
-            className={`${styles.column} ${styles.columnRight}`}
-          >
-            <TimelineEvent right>
-              <HeadingTwo underlined>Since 2018</HeadingTwo>
-              <p>
-                Up until now I've been studying at DTU (Technical University of
-                Denmark)
-              </p>
-            </TimelineEvent>
-            <TimelineEvent right>
-              <HeadingTwo underlined>2015 - 2016</HeadingTwo>
-              <p>Supplementary courses like Math</p>
-            </TimelineEvent>
-          </div>
-        </React.Fragment>
-      )}
+      {timeLineEvents}
     </section>
   )
 }
