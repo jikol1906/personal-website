@@ -5,29 +5,39 @@
   padding: 40rem 8rem;
   z-index: 1;
   display: grid;
+  grid-template-areas:
+    "title title"
+    "text list";
   grid-template-columns: 1fr 1fr;
-  grid-gap:2rem;
+  // grid-template-areas: "title" "text" "list";
+  // grid-template-columns: 1fr;
+  grid-gap: 2rem;
   overflow: hidden;
 
-  h2 {
-    grid-column: 1/-1;
+  @media only screen and (max-width: $bp-small) {
+    grid-template-areas: "title" 
+                         "text" 
+                         "list";
+    grid-template-columns: 1fr;
+    padding: 30rem 3rem;
   }
 
+  h2 {
+    grid-area: title;
+  }
 }
 
 .text {
   font-size: 1.6rem;
-  grid-row: 2/3;
-  grid-column: 1/2;
+  grid-area: text;
 }
 
 .details-list {
-    font-size: 1.6rem;
-    list-style: none;
-    grid-column:2/3;
-    grid-row:2/3;
+  font-size: 1.6rem;
+  list-style: none;
+  grid-area: list;
 
-   li:not(:last-child) {
-       margin-bottom: 1rem;
-   }
+  li:not(:last-child) {
+    margin-bottom: 1rem;
+  }
 }
