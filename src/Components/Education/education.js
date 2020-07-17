@@ -11,6 +11,7 @@ import {
 } from "../../Utils/Transitions/transitions"
 import useMediaQuery from "../../Utils/useMediaQuery"
 import timeEv from "../../../static/TimelineEvents.json"
+import { removeUneven, removeEven } from '../../Utils/Helperfunctions'
 
 export default function Education() {
   const timeLineRef = useRef()
@@ -25,7 +26,7 @@ export default function Education() {
       >
         {!matches
           ? timeEv
-              .filter((e, i) => i % 2 !== 0)
+              .filter(removeUneven)
               .map(ev => (
                 <TimelineEvent key={ev.title} title={ev.title} text={ev.text} />
               ))
@@ -39,7 +40,7 @@ export default function Education() {
           style={!timeLineIsInView ? fadeInRightCornerExited : fadeInEntered}
         >
           {timeEv
-            .filter((e, i) => i % 2 === 0)
+            .filter(removeEven)
             .map(ev => (
               <TimelineEvent
                 right
