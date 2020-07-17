@@ -1,11 +1,13 @@
 [
   {
     "title": "Since 2018",
-    "text": "Up until now I've been studying at DTU (Technical University of Denmark"
+    "text": "Up until now I've been studying at DTU (Technical University of Denmark",
+    "img":"dtu.png"
   },
   {
     "title": "2016 - 2018",
-    "text": "I studied at KEA (Københavns Erhvervsakademi) from 2016 to 2018"
+    "text": "I studied at KEA (Københavns Erhvervsakademi) from 2016 to 2018",
+    "img":"kea.png"
   },
   {
     "title": "2015 - 2016",

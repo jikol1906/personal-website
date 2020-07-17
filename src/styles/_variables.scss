@@ -2,6 +2,7 @@ $bp-largest: 75em;
 $bp-large: 62.5em;
 $bp-medium: 50em;
 $bp-small: 37.5em;
+$bp-smallest: 25em;
 
 $color-primary: #1a73da;
 $color-primary-2: #1465c2;
@@ -15,5 +16,8 @@ $color-black:#000;
 
 $shadow-dark: 0 1.2rem 1.4rem rgba(0, 0, 0, 0.2);
 $shadow-dark-wider: 0 2rem 1.4rem rgba(0, 0, 0, 0.2);
-
 $shadow-light: 0 .7rem 2rem rgba(0, 0, 0, 0.1);
+
+
+//Paddings
+$section-padding-small:3rem;

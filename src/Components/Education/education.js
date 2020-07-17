@@ -10,41 +10,46 @@ import {
   fadeInLeftCornerExited,
 } from "../../Utils/Transitions/transitions"
 import useMediaQuery from "../../Utils/useMediaQuery"
-import timeEv from '../../../static/TimelineEvents.json'
+import timeEv from "../../../static/TimelineEvents.json"
 
 export default function Education() {
   const timeLineRef = useRef()
   const timeLineIsInView = useMeasure(timeLineRef, 400)
   const matches = useMediaQuery("(max-width: 50em)")
-  console.log(JSON.stringify(timeEv))
-  const timeLineEvents = matches ? (
-    <div className={styles.column}>
-      {timeEv.map(ev => (
-        <TimelineEvent key={ev.title} title={ev.title} text={ev.text} />
-      ))}
-    </div>
-  ) : (
+
+  const timeLineEvents = (
     <>
       <div
-        className={styles.column}
         style={!timeLineIsInView ? fadeInLeftCornerExited : fadeInEntered}
+        className={styles.column}
       >
-        {timeEv
-          .filter((e, i) => i % 2 !== 0)
-          .map(ev => (
-            <TimelineEvent key={ev.title} title={ev.title} text={ev.text} />
-          ))}
+        {!matches
+          ? timeEv
+              .filter((e, i) => i % 2 !== 0)
+              .map(ev => (
+                <TimelineEvent key={ev.title} title={ev.title} text={ev.text} />
+              ))
+          : timeEv.map(ev => (
+              <TimelineEvent key={ev.title} title={ev.title} text={ev.text} />
+            ))}
       </div>
-      <div
-        className={`${styles.column} ${styles.columnRight}`}
-        style={!timeLineIsInView ? fadeInRightCornerExited : fadeInEntered}
-      >
-        {timeEv
-          .filter((e, i) => i % 2 === 0)
-          .map(ev => (
-            <TimelineEvent right key={ev.title} title={ev.title} text={ev.text} />
-          ))}
-      </div>
+      {!matches && (
+        <div
+          className={`${styles.column} ${styles.columnRight}`}
+          style={!timeLineIsInView ? fadeInRightCornerExited : fadeInEntered}
+        >
+          {timeEv
+            .filter((e, i) => i % 2 === 0)
+            .map(ev => (
+              <TimelineEvent
+                right
+                key={ev.title}
+                title={ev.title}
+                text={ev.text}
+              />
+            ))}
+        </div>
+      )}
     </>
   )
 
