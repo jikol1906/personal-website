@@ -3,12 +3,11 @@ import styles from "./competences.module.scss"
 import HeadingTwo from "../../Typography/HeadingTwo/headingTwo"
 import Card from "../Card/Card"
 import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
 import CompetencesJSON from "../../../static/Competences/Competences.json"
 
 export default function Competences() {
   const data = useStaticQuery(graphql`
-    query allImages {
+    query competences {
       allImage: allFile(filter: { relativeDirectory: { eq: "Competences" } }) {
         nodes {
           id

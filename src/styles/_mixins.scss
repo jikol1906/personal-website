@@ -1,7 +1,20 @@
+@use "sass:string";
+
 @mixin primaryGradient {
   background-image: linear-gradient(
     to bottom right,
     $color-primary,
     $color-primary-2
   );
+}
+
+@mixin absoluteCenterVertical($adittionalTransforms...) {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) $adittionalTransforms;
+}
+
+@mixin box($width, $height: $width) {
+  width: $width;
+  height: $height;
 }

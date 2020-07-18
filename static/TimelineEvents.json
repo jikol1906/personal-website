@@ -1,7 +1,7 @@
 [
   {
     "title": "Since 2018",
-    "text": "Up until now I've been studying at DTU (Technical University of Denmark",
+    "text": "Up until now I've been studying at DTU (Technical University of Denmark)",
     "img":"dtu.png"
   },
   {
@@ -11,7 +11,9 @@
   },
   {
     "title": "2015 - 2016",
-    "text": "Supplementary Courses (Math and Physics)"
+    "text": "Supplementary Courses (Math and Physics)",
+    "img":"kvuc.png"
   },
-  { "title": "2012 - 2015", "text": "High School at Gentofte Studenterkursus" }
+  { "title": "2012 - 2015", "text": "High School at Gentofte Studenterkursus" },
+  { "title": "2012 and before", "text": "Elementary School" }
 ]
