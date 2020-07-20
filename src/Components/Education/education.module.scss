@@ -18,14 +18,21 @@ $event-margin-bottom: 20rem;
 }
 
 .education {
+
   --event-height: 30rem;
   --event-margin-bottom: 20rem;
   --event-row-gap: 2rem;
-  --event-padding: 2rem;
+  --event-padding: 4rem;
+
   --dot-size: 3rem;
+
   --arrow-size: 4rem;
+
   --column-gap: 6rem;
+  --column-left-margin-top: calc(var(--event-height) - var(--event-padding));
+
   --timeline-width: 1rem;
+  
 
   grid-column: center-start/center-end;
   grid-row: 4/7;
@@ -41,6 +48,7 @@ $event-margin-bottom: 20rem;
   overflow: hidden;
 
   @media only screen and (max-width: $bp-medium) {
+    --event-margin-bottom: 5rem;
     grid-template-areas:
       "title title"
       "column timeline";
@@ -53,7 +61,7 @@ $event-margin-bottom: 20rem;
   flex-direction: column;
   grid-area: column;
   align-items: stretch;
-  margin-top: calc(var(--event-height) / 2 + var(--event-margin-bottom) / 2);
+  margin-top: var(--column-left-margin-top);
 
   &--right {
     margin-top: 0;
@@ -77,10 +85,6 @@ $event-margin-bottom: 20rem;
     "title"
     "text"
     "img";
-  grid-template-rows: repeat(
-    3,
-    1fr
-  );
   grid-row-gap: var(--event-row-gap);
   grid-column-gap: 3rem;
   justify-items: center;

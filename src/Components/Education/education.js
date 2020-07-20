@@ -89,8 +89,8 @@ function TimelineEvent({ children, right, text, title, img }) {
         nodes {
           base
           childImageSharp {
-            fluid{
-              ...GatsbyImageSharpFluid
+            fixed(height:70){
+              ...GatsbyImageSharpFixed
             }
           }
         }
@@ -105,8 +105,8 @@ function TimelineEvent({ children, right, text, title, img }) {
     const theImg = (
       <Img
         className={styles.img}
-        fluid={
-          data.allImage.nodes.find(i => i.base === img).childImageSharp.fluid
+        fixed={
+          data.allImage.nodes.find(i => i.base === img).childImageSharp.fixed
         }
       />
     )
