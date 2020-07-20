@@ -1,5 +1,5 @@
-$dot-size: 3rem;
-$arrow-size: 4rem;
+$event-dot-size: 3rem;
+$event-arrow-size: 4rem;
 $column-gap: 6rem;
 $event-height: 25rem;
 $event-margin-bottom: 20rem;
@@ -18,21 +18,17 @@ $event-margin-bottom: 20rem;
 }
 
 .education {
-
-  --event-height: 30rem;
-  --event-margin-bottom: 20rem;
+  --event-height: 40rem;
+  --event-margin-bottom: var(--column-left-margin-top);
   --event-row-gap: 2rem;
-  --event-padding: 4rem;
+  --event-padding: 3rem;
+  --event-dot-size: 2.5rem;
+  --event-arrow-size: 10rem;
 
-  --dot-size: 3rem;
-
-  --arrow-size: 4rem;
-
-  --column-gap: 6rem;
+  --column-gap: calc(var(--event-arrow-size) + 4rem);
   --column-left-margin-top: calc(var(--event-height) - var(--event-padding));
 
   --timeline-width: 1rem;
-  
 
   grid-column: center-start/center-end;
   grid-row: 4/7;
@@ -49,6 +45,8 @@ $event-margin-bottom: 20rem;
 
   @media only screen and (max-width: $bp-medium) {
     --event-margin-bottom: 5rem;
+
+    padding: var(--section-padding-top-bottom) calc(var(--section-padding-left-right) * .5);
     grid-template-areas:
       "title title"
       "column timeline";
@@ -79,7 +77,7 @@ $event-margin-bottom: 20rem;
   padding: var(--event-padding);
   height: var(--event-height);
   box-shadow: $shadow-dark;
-  border-radius: 10px;
+
   display: grid;
   grid-template-areas:
     "title"
@@ -95,6 +93,7 @@ $event-margin-bottom: 20rem;
 
   p {
     grid-area: text;
+    text-align: center;
     font-size: 1.4rem;
     color: black;
   }
@@ -108,12 +107,12 @@ $event-margin-bottom: 20rem;
   &::before {
     content: "";
     @include absoluteCenterVertical;
-    @include box(var(--dot-size));
+    @include box(var(--event-dot-size));
     display: inline-block;
     background: #eee;
-    // right: calc(-#{$dot-size} / 2 - #{var(--column-gap)} - 0.5rem);
+    // right: calc(-#{$event-dot-size} / 2 - #{var(--column-gap)} - 0.5rem);
     right: calc(
-      -1 * (var(--dot-size) / 2) - var(--column-gap) - var(--timeline-width) / 2
+      -1 * (var(--event-dot-size) / 2) - var(--column-gap) - var(--timeline-width) / 2
     );
     z-index: 2;
     border-radius: 100%;
@@ -121,10 +120,11 @@ $event-margin-bottom: 20rem;
 
   &::after {
     content: "";
-    @include absoluteCenterVertical(rotate(45deg));
-    @include box(var(--arrow-size));
+    clip-path: polygon(0% 0%, 50% 0%, 100% 50%, 50% 100%, 0% 100%);
+    @include absoluteCenterVertical;
+    @include box(var(--event-arrow-size), var(--event-height));
     display: block;
-    right: calc(-0.475 * var(--arrow-size));
+    right: calc(-1 * var(--event-arrow-size));
     background-color: $color-secondary;
   }
 
@@ -132,12 +132,13 @@ $event-margin-bottom: 20rem;
     justify-self: right;
 
     &::after {
-      left: calc(-0.475 * var(--arrow-size));
+      clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%, 0% 50%);
+      left: calc(-1 * var(--event-arrow-size));
     }
 
     &::before {
       left: calc(
-        -1 * var(--dot-size) / 2 - var(--column-gap) - var(--timeline-width) / 2
+        -1 * var(--event-dot-size) / 2 - var(--column-gap) - var(--timeline-width) / 2
       );
     }
 
