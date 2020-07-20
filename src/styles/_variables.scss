@@ -12,9 +12,23 @@ $color-secondary-2:#e4e4e4;
 
 $color-black:#000;
 
+:root {
+    //Layout
+    --section-intersection-length:15rem;
+    --section-padding-top-bottom:30rem;
+    --section-padding-left-right:8rem;
+
+    @media only screen and (max-width:$bp-small) {
+        //Layout
+        --section-intersection-length:9rem;
+        --section-padding-top-bottom:20rem;
+        --section-padding-left-right:3rem;
+    }
+}
+
 //
-$section-intersection-length:15rem;
-$section-intersection-length-small:15rem;
+$section-intersection-length:6rem;
+$section-intersection-length-small:10rem;
 
 //Box-shadows
 

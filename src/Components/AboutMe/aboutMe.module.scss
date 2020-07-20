@@ -2,7 +2,7 @@
   background: $color-secondary;
   grid-column: center-start/center-end;
   grid-row: 2/5;
-  padding: 40rem 8rem;
+  padding: var(--section-padding-top-bottom) var(--section-padding-left-right);
   z-index: 1;
   display: grid;
   grid-template-areas:
@@ -17,7 +17,6 @@
                          "text" 
                          "list";
     grid-template-columns: 1fr;
-    padding: 20rem $section-padding-small;
   }
 
   h2 {

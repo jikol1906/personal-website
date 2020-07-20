@@ -2,11 +2,11 @@
   grid-column: full-start / full-end;
   grid-row: 1/3;
   @include primaryGradient;
-  padding: 8rem;
+  padding: 4rem var(--section-padding-left-right);
   clip-path: polygon(
     0 0,
     100% 0,
-    100% calc(100vh - #{$section-intersection-length}),
+    100% calc(100vh - var(--section-intersection-length)),
     0 100%
   );
   z-index: 2;

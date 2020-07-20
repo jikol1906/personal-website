@@ -1,7 +1,7 @@
 .competences {
     grid-row:6/9;
     grid-column: center-start/center-end;
-    padding: 20rem 8rem;
+    padding: var(--section-padding-top-bottom) var(--section-padding-left-right);
     background-color: $color-secondary;
     display:grid;
     grid-row-gap: 4rem;

@@ -1,31 +1,42 @@
-$dot-size: 2.5rem;
-$column-gap: 8rem;
+$dot-size: 3rem;
+$arrow-size: 4rem;
+$column-gap: 6rem;
+$event-height: 25rem;
+$event-margin-bottom: 20rem;
 
 .background {
   grid-row: 4/7;
   grid-column: 1/-1;
   @include primaryGradient;
   clip-path: polygon(
-    0 $section-intersection-length,
+    0 var(--section-intersection-length),
     100% 0,
     100% 100%,
-    0 calc(100% - #{$section-intersection-length})
+    0 calc(100% - var(--section-intersection-length))
   );
   z-index: 2;
 }
 
 .education {
+  --event-height: 30rem;
+  --event-margin-bottom: 20rem;
+  --event-row-gap: 2rem;
+  --event-padding: 2rem;
+  --dot-size: 3rem;
+  --arrow-size: 4rem;
+  --column-gap: 6rem;
+  --timeline-width: 1rem;
+
   grid-column: center-start/center-end;
   grid-row: 4/7;
-  padding: 30rem 8rem;
-  padding-top: 20rem;
+  padding: var(--section-padding-top-bottom) var(--section-padding-left-right);
   display: grid;
   grid-template-areas:
     "title title title"
     "column timeline columnRight";
   grid-template-columns: 1fr min-content 1fr;
   grid-row-gap: 4rem;
-  grid-column-gap: $column-gap;
+  grid-column-gap: var(--column-gap);
   z-index: 2;
   overflow: hidden;
 
@@ -35,10 +46,6 @@ $column-gap: 8rem;
       "column timeline";
     grid-template-columns: 1fr min-content;
   }
-
-  @media only screen and (max-width: $bp-small) {
-    padding: 20rem $section-padding-small;
-  }
 }
 
 .column {
@@ -46,7 +53,7 @@ $column-gap: 8rem;
   flex-direction: column;
   grid-area: column;
   align-items: stretch;
-  margin-top: 10rem;
+  margin-top: calc(var(--event-height) / 2 + var(--event-margin-bottom) / 2);
 
   &--right {
     margin-top: 0;
@@ -58,27 +65,11 @@ $column-gap: 8rem;
   }
 }
 
-.heading {
-  grid-column: 1/-1;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 0.4rem;
-}
-
-.timeline {
-  grid-area: timeline;
-  border-left: 1rem solid rgba($color-secondary, 0.6);
-  justify-self: center;
-
-  @media only screen and (max-width: $bp-medium) {
-    justify-self: flex-end;
-  }
-}
-
 .event {
   background-color: $color-secondary;
   position: relative;
-  padding: 4rem;
+  padding: var(--event-padding);
+  height: var(--event-height);
   box-shadow: $shadow-dark;
   border-radius: 10px;
   display: grid;
@@ -86,13 +77,16 @@ $column-gap: 8rem;
     "title"
     "text"
     "img";
-
-  grid-row-gap: 2rem;
+  grid-template-rows: repeat(
+    3,
+    1fr
+  );
+  grid-row-gap: var(--event-row-gap);
   grid-column-gap: 3rem;
   justify-items: center;
 
   &:not(:last-child) {
-    margin-bottom: 5rem;
+    margin-bottom: var(--event-margin-bottom);
   }
 
   p {
@@ -110,11 +104,13 @@ $column-gap: 8rem;
   &::before {
     content: "";
     @include absoluteCenterVertical;
-    @include box($dot-size);
+    @include box(var(--dot-size));
     display: inline-block;
     background: #eee;
-    // right: calc(-#{$dot-size} / 2 - #{$column-gap} - 0.5rem);
-    right: -1 * ($dot-size / 2) - $column-gap - 0.5rem;
+    // right: calc(-#{$dot-size} / 2 - #{var(--column-gap)} - 0.5rem);
+    right: calc(
+      -1 * (var(--dot-size) / 2) - var(--column-gap) - var(--timeline-width) / 2
+    );
     z-index: 2;
     border-radius: 100%;
   }
@@ -122,28 +118,23 @@ $column-gap: 8rem;
   &::after {
     content: "";
     @include absoluteCenterVertical(rotate(45deg));
+    @include box(var(--arrow-size));
     display: block;
-    height: 4rem;
-    right: -1.4rem;
-
-    width: 4rem;
+    right: calc(-0.475 * var(--arrow-size));
     background-color: $color-secondary;
-
-    @media only screen and (max-width: $bp-small) {
-      @include box(2.5rem);
-      right: -1rem;
-    }
   }
 
   &--right {
     justify-self: right;
 
     &::after {
-      left: -1.4rem;
+      left: calc(-0.475 * var(--arrow-size));
     }
 
     &::before {
-      left: calc(-#{$dot-size} / 2 - #{$column-gap} - 0.5rem);
+      left: calc(
+        -1 * var(--dot-size) / 2 - var(--column-gap) - var(--timeline-width) / 2
+      );
     }
 
     p {
@@ -151,6 +142,25 @@ $column-gap: 8rem;
       grid-row: 2;
     }
   }
+}
+
+.timeline {
+  grid-area: timeline;
+  width: var(--timeline-width);
+  background-color: rgba($color-secondary, 0.6);
+  justify-self: center;
+  border-radius: 100vh;
+
+  @media only screen and (max-width: $bp-medium) {
+    justify-self: flex-end;
+  }
+}
+
+.heading {
+  grid-column: 1/-1;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.4rem;
 }
 
 .img {
