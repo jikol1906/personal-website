@@ -73,6 +73,7 @@ export default function Education() {
       <div className={`${styles.timeline} ${styles.timelineTopLeftBottom}`}></div>
       <div className={`${styles.timeline} ${styles.timelineTopRightBottom}`}></div>
       <div className={styles.event}><HeadingTwo black>DTU.</HeadingTwo></div>
+      <div className={`${styles.event} ${styles.eventRight}`}><HeadingTwo black>KEA.</HeadingTwo></div>
       
       {/* <HeadingTwo otherStyles={styles.heading}>My Education</HeadingTwo>
       <div

@@ -14,11 +14,12 @@
 .education {
   --timeline-width: 2rem;
   --timeline-dot-size: 6rem;
-  
+
   --event-dot-size: 4rem;
-  --event-width:50%;
-  --row-offset: 0;
-  --row-height:20rem;
+  --event-column-span: 3;
+
+  --row-height: 20rem;
+  --row-gap: 6rem;
 
   padding: var(--section-padding-top-bottom) var(--section-padding-left-right);
   grid-column: center-start / center-end;
@@ -30,24 +31,27 @@
     [left-side-start]
     repeat(3, 1fr)
     [left-side-end right-side-start]
-    repeat(3,1fr)
+    repeat(3, 1fr)
     [right-side-end];
-  
-    grid-template-rows: [timeline-begin]
-                         var(--row-height)
-                         [timeline-section-1-start]
-                         var(--timeline-width) 
-                         [timeline-begin-end] 
-                         repeat(3,var(--row-height))
-                         [timeline-section-2-start]
-                         var(--timeline-width) 
-                         [timeline-section-1-end]
-                         repeat(3,var(--row-height))
-                         [timeline-section-3-start]
-                         var(--timeline-width)
-                         [timeline-section-2-end]
-                         repeat(3,var(--row-height))
-                         [timeline-section-3-end]
+
+  grid-template-rows:
+    [timeline-begin]
+    var(--row-height)
+    [timeline-section-1-start]
+    var(--timeline-width)
+    [timeline-begin-end]
+    repeat(3, var(--row-height))
+    [timeline-section-2-start]
+    var(--timeline-width)
+    [timeline-section-1-end]
+    repeat(3, var(--row-height))
+    [timeline-section-3-start]
+    var(--timeline-width)
+    [timeline-section-2-end]
+    repeat(3, var(--row-height))
+    [timeline-section-3-end];
+
+    grid-row-gap:var(--row-gap);
 }
 
 .timeline {
@@ -124,26 +128,37 @@
 }
 
 .event {
-    position:relative;
-    background: var(--color-secondary);
-    box-shadow: $shadow-dark;
-    grid-column: 1/-1;
-    grid-row:timeline-section-1-start/timeline-section-1-end;
-    min-height: calc(var(--row-height) * 2) ;
-    width:83.333%;
-    align-self: center;
-    border-radius:10rem;
-    padding:10rem;
+  position: relative;
+  background: var(--color-secondary);
+  box-shadow: $shadow-dark;
+  grid-column: 1/ 6;
+  grid-row: timeline-section-1-start/timeline-section-1-end;
+  min-height: calc(var(--row-height) * 2);
+  
+  align-self: center;
+  border-radius: 10rem;
+  padding: 10rem;
+
+  &--right {
+    grid-column: 2/ 7;
+    grid-row: timeline-section-2-start/timeline-section-2-end;
 
     &::after {
-      content:'';
-      @include absoluteCenterVertical;
-      @include box(var(--event-dot-size));
-      display:block;
-      background: var(--color-secondary);
-      border-radius: 50%;
-      right: calc(-1 * (20% + var(--timeline-width) / 2))
-  
+      left: calc(
+        -1 * (var(--event-dot-size) / 2 + 20% - var(--timeline-width) / 2)
+      );
     }
-  
+  }
+
+  &::after {
+    content: "";
+    @include absoluteCenterVertical;
+    @include box(var(--event-dot-size));
+    display: block;
+    background: var(--color-secondary);
+    border-radius: 50%;
+    right: calc(
+      -1 * (var(--event-dot-size) / 2 + 20% - var(--timeline-width) / 2)
+    );
+  }
 }
