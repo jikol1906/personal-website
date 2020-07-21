@@ -12,57 +12,79 @@
 }
 
 .education {
-  --timeline-width: 2rem; 
-  --timeline-start-dot-size:6rem;
-  --event-size:8rem;
-
-  --row-offset:0;
+  --timeline-width: 2rem;
+  --timeline-dot-size: 6rem;
+  
+  --event-dot-size: 4rem;
+  --event-width:50%;
+  --row-offset: 0;
+  --row-height:20rem;
 
   padding: var(--section-padding-top-bottom) var(--section-padding-left-right);
   grid-column: center-start / center-end;
   grid-row: 5/6;
+  z-index: 2;
+
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: var(--timeline-width);
-  grid-auto-rows: 20rem var(--timeline-width);
-  z-index: 4;
+  grid-template-columns:
+    [left-side-start]
+    repeat(3, 1fr)
+    [left-side-end right-side-start]
+    repeat(3,1fr)
+    [right-side-end];
+  
+    grid-template-rows: [timeline-begin]
+                         var(--row-height)
+                         [timeline-section-1-start]
+                         var(--timeline-width) 
+                         [timeline-begin-end] 
+                         repeat(3,var(--row-height))
+                         [timeline-section-2-start]
+                         var(--timeline-width) 
+                         [timeline-section-1-end]
+                         repeat(3,var(--row-height))
+                         [timeline-section-3-start]
+                         var(--timeline-width)
+                         [timeline-section-2-end]
+                         repeat(3,var(--row-height))
+                         [timeline-section-3-end]
 }
 
 .timeline {
-  
   $timeline-color: rgba($color-secondary, 0.7);
 
   &:nth-child(1) {
-    grid-row: calc(1 + var(--row-offset))/calc(4 + var(--row-offset));
-    grid-column: 1/4;
+    grid-row: timeline-begin / timeline-begin-end;
+    grid-column: left-side-start/left-side-end;
     position: relative;
 
     &::after {
-      
-      content:'';
-      display:block;
+      content: "";
+      display: block;
       position: absolute;
-      @include box(var(--timeline-start-dot-size));
+      @include box(var(--timeline-dot-size));
       background-color: var(--color-secondary);
       border-radius: 100%;
-      left: calc(-1 * (var(--timeline-start-dot-size) / 2) - var(--timeline-width) / 2);
-      top:calc(-.9 * var(--timeline-start-dot-size));
+      left: calc(
+        -1 * (var(--timeline-dot-size) / 2) - var(--timeline-width) / 2
+      );
+      top: calc(-0.9 * var(--timeline-dot-size));
     }
   }
 
   &:nth-child(2) {
-    grid-row: calc(3 + var(--row-offset))/calc(10 + var(--row-offset));
-    grid-column: 4/7;
+    grid-row: timeline-section-1-start / timeline-section-1-end;
+    grid-column: right-side-start/ right-side-end;
   }
 
   &:nth-child(3) {
-    grid-row: calc(9 + var(--row-offset))/calc(16 + var(--row-offset));
-    grid-column: 1/4;
+    grid-row: timeline-section-2-start / timeline-section-2-end;
+    grid-column: left-side-start / left-side-end;
   }
 
   &:nth-child(4) {
-    grid-row: calc(15 + var(--row-offset))/ calc(22 + var(--row-offset));
-    grid-column: 4/7;
+    grid-row: timeline-section-3-start / timeline-section-3-end;
+    grid-column: right-side-start/ right-side-end;
   }
 
   &--left-bottom {
@@ -102,9 +124,26 @@
 }
 
 .event {
+    position:relative;
+    background: var(--color-secondary);
+    box-shadow: $shadow-dark;
+    grid-column: 1/-1;
+    grid-row:timeline-section-1-start/timeline-section-1-end;
+    min-height: calc(var(--row-height) * 2) ;
+    width:83.333%;
+    align-self: center;
+    border-radius:10rem;
+    padding:10rem;
 
-  &:nth-child(1) {
-
-  }
-
+    &::after {
+      content:'';
+      @include absoluteCenterVertical;
+      @include box(var(--event-dot-size));
+      display:block;
+      background: var(--color-secondary);
+      border-radius: 50%;
+      right: calc(-1 * (20% + var(--timeline-width) / 2))
+  
+    }
+  
 }
