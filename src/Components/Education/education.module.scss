@@ -1,9 +1,3 @@
-$event-dot-size: 3rem;
-$event-arrow-size: 4rem;
-$column-gap: 6rem;
-$event-height: 25rem;
-$event-margin-bottom: 20rem;
-
 .background {
   grid-row: 4/7;
   grid-column: 1/-1;
@@ -18,156 +12,99 @@ $event-margin-bottom: 20rem;
 }
 
 .education {
-  --event-height: 40rem;
-  --event-margin-bottom: var(--column-left-margin-top);
-  --event-row-gap: 2rem;
-  --event-padding: 3rem;
-  --event-dot-size: 2.5rem;
-  --event-arrow-size: 10rem;
+  --timeline-width: 2rem; 
+  --timeline-start-dot-size:6rem;
+  --event-size:8rem;
 
-  --column-gap: calc(var(--event-arrow-size) + 4rem);
-  --column-left-margin-top: calc(var(--event-height) - var(--event-padding));
+  --row-offset:0;
 
-  --timeline-width: 1rem;
-
-  grid-column: center-start/center-end;
-  grid-row: 4/7;
   padding: var(--section-padding-top-bottom) var(--section-padding-left-right);
+  grid-column: center-start / center-end;
+  grid-row: 5/6;
   display: grid;
-  grid-template-areas:
-    "title title title"
-    "column timeline columnRight";
-  grid-template-columns: 1fr min-content 1fr;
-  grid-row-gap: 4rem;
-  grid-column-gap: var(--column-gap);
-  z-index: 2;
-  overflow: hidden;
-
-  @media only screen and (max-width: $bp-medium) {
-    --event-margin-bottom: 5rem;
-
-    padding: var(--section-padding-top-bottom) calc(var(--section-padding-left-right) * .5);
-    grid-template-areas:
-      "title title"
-      "column timeline";
-    grid-template-columns: 1fr min-content;
-  }
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: var(--timeline-width);
+  grid-auto-rows: 20rem var(--timeline-width);
+  z-index: 4;
 }
 
-.column {
-  display: flex;
-  flex-direction: column;
-  grid-area: column;
-  align-items: stretch;
-  margin-top: var(--column-left-margin-top);
+.timeline {
+  
+  $timeline-color: rgba($color-secondary, 0.7);
 
-  &--right {
-    margin-top: 0;
-    grid-area: columnRight;
+  &:nth-child(1) {
+    grid-row: calc(1 + var(--row-offset))/calc(4 + var(--row-offset));
+    grid-column: 1/4;
+    position: relative;
+
+    &::after {
+      
+      content:'';
+      display:block;
+      position: absolute;
+      @include box(var(--timeline-start-dot-size));
+      background-color: var(--color-secondary);
+      border-radius: 100%;
+      left: calc(-1 * (var(--timeline-start-dot-size) / 2) - var(--timeline-width) / 2);
+      top:calc(-.9 * var(--timeline-start-dot-size));
+    }
   }
 
-  @media only screen and (max-width: $bp-medium) {
-    margin-top: 0;
+  &:nth-child(2) {
+    grid-row: calc(3 + var(--row-offset))/calc(10 + var(--row-offset));
+    grid-column: 4/7;
+  }
+
+  &:nth-child(3) {
+    grid-row: calc(9 + var(--row-offset))/calc(16 + var(--row-offset));
+    grid-column: 1/4;
+  }
+
+  &:nth-child(4) {
+    grid-row: calc(15 + var(--row-offset))/ calc(22 + var(--row-offset));
+    grid-column: 4/7;
+  }
+
+  &--left-bottom {
+    border-bottom-left-radius: 100vh;
+    border-left: var(--timeline-width) solid $timeline-color;
+    border-bottom: var(--timeline-width) solid $timeline-color;
+  }
+
+  &--top-right-bottom {
+    border-top-right-radius: 100vh;
+
+    border-bottom-right-radius: 100vh;
+    border-top: var(--timeline-width) solid $timeline-color;
+    border-bottom: var(--timeline-width) solid $timeline-color;
+    border-right: var(--timeline-width) solid $timeline-color;
+  }
+
+  &--top-left-bottom {
+    border-top-left-radius: 100vh;
+    border-bottom-left-radius: 100vh;
+    border-top: var(--timeline-width) solid $timeline-color;
+    border-bottom: var(--timeline-width) solid $timeline-color;
+    border-left: var(--timeline-width) solid $timeline-color;
+  }
+
+  &--right-bottom {
+    border-bottom-right-radius: 100vh;
+    border-right: var(--timeline-width) solid $timeline-color;
+    border-bottom: var(--timeline-width) solid $timeline-color;
+  }
+
+  &--top-left {
+    border-top-left-radius: 100vh;
+    border-top: var(--timeline-width) solid $timeline-color;
+    border-left: var(--timeline-width) solid $timeline-color;
   }
 }
 
 .event {
-  background-color: $color-secondary;
-  position: relative;
-  padding: var(--event-padding);
-  height: var(--event-height);
-  box-shadow: $shadow-dark;
 
-  display: grid;
-  grid-template-areas:
-    "title"
-    "text"
-    "img";
-  grid-row-gap: var(--event-row-gap);
-  grid-column-gap: 3rem;
-  justify-items: center;
+  &:nth-child(1) {
 
-  &:not(:last-child) {
-    margin-bottom: var(--event-margin-bottom);
   }
 
-  p {
-    grid-area: text;
-    text-align: center;
-    font-size: 1.4rem;
-    color: black;
-  }
-
-  h2 {
-    grid-area: title;
-    color: black;
-    text-align: center;
-  }
-
-  &::before {
-    content: "";
-    @include absoluteCenterVertical;
-    @include box(var(--event-dot-size));
-    display: inline-block;
-    background: #eee;
-    // right: calc(-#{$event-dot-size} / 2 - #{var(--column-gap)} - 0.5rem);
-    right: calc(
-      -1 * (var(--event-dot-size) / 2) - var(--column-gap) - var(--timeline-width) / 2
-    );
-    z-index: 2;
-    border-radius: 100%;
-  }
-
-  &::after {
-    content: "";
-    clip-path: polygon(0% 0%, 50% 0%, 100% 50%, 50% 100%, 0% 100%);
-    @include absoluteCenterVertical;
-    @include box(var(--event-arrow-size), var(--event-height));
-    display: block;
-    right: calc(-1 * var(--event-arrow-size));
-    background-color: $color-secondary;
-  }
-
-  &--right {
-    justify-self: right;
-
-    &::after {
-      clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%, 0% 50%);
-      left: calc(-1 * var(--event-arrow-size));
-    }
-
-    &::before {
-      left: calc(
-        -1 * var(--event-dot-size) / 2 - var(--column-gap) - var(--timeline-width) / 2
-      );
-    }
-
-    p {
-      grid-column: 1;
-      grid-row: 2;
-    }
-  }
-}
-
-.timeline {
-  grid-area: timeline;
-  width: var(--timeline-width);
-  background-color: rgba($color-secondary, 0.6);
-  justify-self: center;
-  border-radius: 100vh;
-
-  @media only screen and (max-width: $bp-medium) {
-    justify-self: flex-end;
-  }
-}
-
-.heading {
-  grid-column: 1/-1;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 0.4rem;
-}
-
-.img {
-  grid-area: img;
 }

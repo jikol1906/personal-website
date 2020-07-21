@@ -18,6 +18,9 @@ $color-black:#000;
     --section-padding-top-bottom:30rem;
     --section-padding-left-right:8rem;
 
+    //Colors
+    --color-secondary:#f4f4f4;
+
     @media only screen and (max-width:$bp-small) {
         //Layout
         --section-intersection-length:9rem;
