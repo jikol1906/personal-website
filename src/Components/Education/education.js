@@ -105,8 +105,6 @@ function TimelineEvent({ index, text, title, img }) {
     }
   `)
 
-  console.log(data)
-
   return (
     <div
       style={{ gridRow: `${4 + 4 * index} / ${7 + 4 * index}` }}

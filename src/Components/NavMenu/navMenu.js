@@ -16,7 +16,7 @@ export default function NavMenu() {
         <ul className={styles.list}>
           <NavItem to="home">Home</NavItem>
           <NavItem to="about">About</NavItem>
-          <NavItem to="educations">Education</NavItem>
+          <NavItem to="educations">Education Timeline</NavItem>
           <NavItem to="competences">Competences</NavItem>
           <NavItem to="personal-projects">Personal Projects</NavItem>
         </ul>

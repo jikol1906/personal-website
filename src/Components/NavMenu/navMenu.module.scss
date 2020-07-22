@@ -28,7 +28,7 @@
 .nav {
   transform: translateX(100%);
   background-image: linear-gradient(
-    120deg,
+    110deg,
     transparent 0%,
     transparent 50%,
     $color-primary 50%,
@@ -60,6 +60,10 @@
   transform: translate(-50%, -50%);
   list-style: none;
   transition: all 0.4s ease-in-out;
+
+  @media only screen and (max-width: $bp-small) {
+    left: 60%;
+  }
 }
 
 .icon {
@@ -109,6 +113,7 @@
 
 .link {
   display: inline-block;
+  white-space: nowrap;
   background: none;
   border: none;
   padding: 1rem 2rem;
