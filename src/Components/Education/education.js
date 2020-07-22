@@ -19,27 +19,26 @@ const timeLineEvents = [
   {
     title: "DTU",
     text: "I have studied Software Engineering at DTU since 2018",
-    img:"dtu.png"
+    img: "dtu.png",
   },
   {
     title: "KEA",
     text: "I studied Computer Science at KEA from 2016 - 2018",
-    img:"kea.png"
+    img: "kea.png",
   },
   {
     title: "KVUC",
     text: "Supplementary courses (Math)",
-    img:"kvuc.png"
+    img: "kvuc.png",
   },
   {
     title: "High School",
-    text: "Supplementary courses (Math)",
-    img:"kvuc.png"
+    text: "At Gentofte Studenterkursus",
   },
-
-
-
-
+  {
+    title: "Elementary School",
+    text: "",
+  },
 ]
 
 export default function Education() {
@@ -49,104 +48,76 @@ export default function Education() {
 
   const timeLine = []
 
+  for (let i = 0; i < timeLineEvents.length; i++) {
+    timeLine.push(
+      <div
+        key={i}
+        style={{ gridRow: `${3 + 4 * i} / ${8 + 4 * i}` }}
+        className={i % 2 === 0 ? styles.timeline__right : styles.timeline__left}
+      ></div>
+    )
+  }
+
   return (
     <>
       <div className={styles.background}></div>
       <section id="educations" className={styles.education}>
-        <div className={`${styles.timeline} ${styles.timelineStart}`}></div>
-        <div
-          style={{ gridRow: "2 / 7" }}
-          className={`${styles.timeline} ${styles.timelineRight}`}
-        ></div>
-        <div
-          style={{ gridRow: "6 / 11" }}
-          className={`${styles.timelineLeft}`}
-        ></div>
-        <div
-          style={{ gridRow: "10 / 15" }}
-          className={`${styles.timelineRight}`}
-        ></div>
-        <div
-          style={{ gridRow: "14 / 19" }}
-          className={`${styles.timelineLeft}`}
-        ></div>
-        <div
-          style={{ gridRow: "18 / 23" }}
-          className={`${styles.timelineRight}`}
-        ></div>
-        <div
-          style={{ gridRow: "22 / 27" }}
-          className={`${styles.timelineLeft}`}
-        ></div>
-        <div
-          style={{ gridRow: "26 / 31" }}
-          className={`${styles.timelineRight}`}
-        ></div>
-        <div className={styles.event} style={{ gridRow: "3/6" }}>
-          <HeadingTwo black>DTU (Technical Univeristy Denmark)</HeadingTwo>
-        </div>
-        <div
-          className={`${styles.event} ${styles.eventRight}`}
-          style={{ gridRow: "7/10" }}
+        <HeadingTwo
+          underlined
+          otherStyles={styles.title}
+          inlineStyles={{ gridColumn: "1/-1", gridRow: "1/2" }}
         >
-          <HeadingTwo black>KEA</HeadingTwo>
-        </div>
-        <div className={styles.event} style={{ gridRow: "11/14" }}>
-          <HeadingTwo black>High School</HeadingTwo>
-        </div>
+          Education Timeline
+        </HeadingTwo>
+        <div className={`${styles.timeline__start}`}></div>
+        {timeLine}
+        {timeLineEvents.map((e, i) => (
+          <TimelineEvent title={e.title} text={e.text} key={i} index={i} />
+        ))}
         <div
-          className={`${styles.event} ${styles.eventRight}`}
-          style={{ gridRow: "14/18" }}
-        >
-          <HeadingTwo black>High School</HeadingTwo>
-        </div>
+          style={{
+            gridRow: `${3 + 4 * timeLineEvents.length}/${
+              5 + 4 * timeLineEvents.length
+            }`,
+          }}
+          className={`${styles.timeline__end} ${
+            timeLineEvents.length % 2 === 0 && styles.timeline__endRight
+          }`}
+        ></div>
       </section>
     </>
   )
 }
 
-// function TimelineEvent({ children, right, text, title, img }) {
-//   const data = useStaticQuery(graphql`
-//     query education {
-//       allImage: allFile(filter: { relativeDirectory: { eq: "Education" } }) {
-//         nodes {
-//           base
-//           childImageSharp {
-//             fixed(height:70){
-//               ...GatsbyImageSharpFixed
-//             }
-//           }
-//         }
-//       }
-//     }
-//   `)
+function TimelineEvent({ index, text, title, img }) {
+  const data = useStaticQuery(graphql`
+    query education {
+      allImage: allFile(filter: { relativeDirectory: { eq: "Education" } }) {
+        nodes {
+          base
+          childImageSharp {
+            fixed(height: 70) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
+      }
+    }
+  `)
 
-//   const theStyles = [styles.event]
-//   right && theStyles.push(styles.eventRight)
+  console.log(data)
 
-//   if (img) {
-//     const theImg = (
-//       <Img
-//         className={styles.img}
-//         fixed={
-//           data.allImage.nodes.find(i => i.base === img).childImageSharp.fixed
-//         }
-//       />
-//     )
-
-//     return (
-//       <div className={theStyles.join(" ")}>
-//         <HeadingTwo underlined>{title}</HeadingTwo>
-//         <p>{text}</p>
-//         {theImg}
-//       </div>
-//     )
-//   } else {
-//     return (
-//       <div className={theStyles.join(" ")}>
-//         <HeadingTwo underlined>{title}</HeadingTwo>
-//         <p>{text}</p>
-//       </div>
-//     )
-//   }
-// }
+  return (
+    <div
+      style={{ gridRow: `${4 + 4 * index} / ${7 + 4 * index}` }}
+      className={
+        index % 2 === 0 ? styles.event : `${styles.event} ${styles.eventRight}`
+      }
+    >
+      <HeadingTwo underlined black>
+        {title}
+      </HeadingTwo>
+      <p>{text}</p>
+    </div>
+  )
+}

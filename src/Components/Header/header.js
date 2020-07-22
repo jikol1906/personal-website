@@ -5,6 +5,8 @@ import HeadingTwo from "../../Typography/HeadingTwo/headingTwo"
 
 export default function Header() {
   return (
+    <>
+    <div className={styles.background}></div>
     <header id="home" className={styles.header}>
       
       <HeadingOne otherStyles={styles.heading}>Boris Grunwald</HeadingOne>
@@ -12,5 +14,6 @@ export default function Header() {
         Software Developer
       </HeadingTwo>
     </header>
+    </>
   )
 }
