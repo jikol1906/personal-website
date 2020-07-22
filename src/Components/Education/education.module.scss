@@ -12,7 +12,7 @@
 }
 
 .education {
-  --timeline-width: .3rem;
+  --timeline-width: 0.3rem;
   --timeline-dot-size: 6rem;
 
   --event-dot-size: 4rem;
@@ -39,10 +39,8 @@
     var(--row-height)
     var(--timeline-width);
 
-  grid-auto-rows: var(--row-height) 
-                  var(--row-height) 
-                  var(--row-height)
-                  var(--timeline-width);
+  grid-auto-rows: var(--row-height) var(--row-height) var(--row-height)
+    var(--timeline-width);
 
   grid-row-gap: var(--row-gap);
 }
@@ -50,10 +48,13 @@
 .timeline {
   $timeline-color: rgba($color-secondary, 0.7);
 
-  &:nth-child(1) {
+  &--start {
     grid-row: 1 / 3;
     grid-column: left-side-start/left-side-end;
     position: relative;
+    border-bottom-left-radius: 100vh;
+    border-left: var(--timeline-width) solid $timeline-color;
+    border-bottom: var(--timeline-width) solid $timeline-color;
 
     &::after {
       content: "";
@@ -69,53 +70,21 @@
     }
   }
 
-  &:nth-child(2) {
-    grid-row: 2 / 7;
+  &--right {
     grid-column: right-side-start/ right-side-end;
-  }
-
-  &:nth-child(3) {
-    grid-row: 6 / 11;
-    grid-column: left-side-start / left-side-end;
-  }
-
-  &:nth-child(4) {
-    grid-row: 10 / 15;
-    grid-column: right-side-start/ right-side-end;
-  }
-
-  &--left-bottom {
-    border-bottom-left-radius: 100vh;
-    border-left: var(--timeline-width) solid $timeline-color;
-    border-bottom: var(--timeline-width) solid $timeline-color;
-  }
-
-  &--top-right-bottom {
     border-top-right-radius: 100vh;
-
     border-bottom-right-radius: 100vh;
     border-top: var(--timeline-width) solid $timeline-color;
     border-bottom: var(--timeline-width) solid $timeline-color;
     border-right: var(--timeline-width) solid $timeline-color;
   }
 
-  &--top-left-bottom {
+  &--left {
+    grid-column: left-side-start / left-side-end;
     border-top-left-radius: 100vh;
     border-bottom-left-radius: 100vh;
     border-top: var(--timeline-width) solid $timeline-color;
     border-bottom: var(--timeline-width) solid $timeline-color;
-    border-left: var(--timeline-width) solid $timeline-color;
-  }
-
-  &--right-bottom {
-    border-bottom-right-radius: 100vh;
-    border-right: var(--timeline-width) solid $timeline-color;
-    border-bottom: var(--timeline-width) solid $timeline-color;
-  }
-
-  &--top-left {
-    border-top-left-radius: 100vh;
-    border-top: var(--timeline-width) solid $timeline-color;
     border-left: var(--timeline-width) solid $timeline-color;
   }
 }
@@ -143,7 +112,7 @@
     );
   }
 
-  &:nth-child(even) {
+  &--right {
     grid-column: 2/ 7;
 
     &::after {
