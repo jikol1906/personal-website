@@ -12,12 +12,12 @@
 }
 
 .education {
-  --timeline-width: 2rem;
+  --timeline-width: .3rem;
   --timeline-dot-size: 6rem;
 
   --event-dot-size: 4rem;
   --event-column-span: 3;
-  --event-padding:5rem;
+  --event-padding: 5rem;
 
   --row-height: 20rem;
   --row-gap: 6rem;
@@ -35,34 +35,14 @@
     repeat(3, 1fr)
     [right-side-end];
 
-  // grid-template-rows:
-  //   [timeline-begin]
-  //   var(--row-height)
-  //   [timeline-section-1-start]
-  //   var(--timeline-width)
-  //   [timeline-begin-end]
-  //   repeat(3, var(--row-height))
-  //   [timeline-section-2-start]
-  //   var(--timeline-width)
-  //   [timeline-section-1-end]
-  //   repeat(3, var(--row-height))
-  //   [timeline-section-3-start]
-  //   var(--timeline-width)
-  //   [timeline-section-2-end]
-  //   repeat(3, var(--row-height))
-  //   [timeline-section-4-start]
-  //   var(--timeline-width)
-  //   [timeline-section-3-end]
-  //   repeat(3, var(--row-height));
-
   grid-template-rows:
     var(--row-height)
-    var(--timeline-width)
-    repeat(
-      5,
-      var(--row-height) var(--row-height) var(--row-height)
-        var(--timeline-width)
-    );
+    var(--timeline-width);
+
+  grid-auto-rows: var(--row-height) 
+                  var(--row-height) 
+                  var(--row-height)
+                  var(--timeline-width);
 
   grid-row-gap: var(--row-gap);
 }
@@ -144,7 +124,7 @@
   position: relative;
   background: var(--color-secondary);
   box-shadow: $shadow-dark;
-  grid-column:1/6;
+  grid-column: 1/6;
   min-height: calc(var(--row-height) * 2.3);
   text-align: center;
   align-self: center;
