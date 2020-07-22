@@ -8,6 +8,8 @@ import {
   fadeInLeftCornerExited,
   expandFromTopExited,
   expandFromTopEnteredDelay,
+  expandFromTopEntered,
+  fadeInEnteredDelay,
 } from "../../Utils/Transitions/transitions"
 import { useStaticQuery, graphql } from "gatsby"
 import useMediaQuery from "../../Utils/useMediaQuery"
@@ -17,13 +19,13 @@ import { removeUneven, removeEven } from "../../Utils/Helperfunctions"
 
 const timeLineEvents = [
   {
-    title: "DTU",
-    text: "I have studied Software Engineering at DTU since 2018",
+    title: "DTU (Since 2018)",
+    text: "I have studied Software Engineering at DTU",
     img: "dtu.png",
   },
   {
-    title: "KEA",
-    text: "I studied Computer Science at KEA from 2016 - 2018",
+    title: "KEA (2016 - 2018)",
+    text: "I studied Computer Science at KEA",
     img: "kea.png",
   },
   {
@@ -90,6 +92,10 @@ export default function Education() {
 }
 
 function TimelineEvent({ index, text, title, img }) {
+  
+  const eventRef = useRef()
+  const isInViewport = useMeasure(eventRef)
+
   const data = useStaticQuery(graphql`
     query education {
       allImage: allFile(filter: { relativeDirectory: { eq: "Education" } }) {
@@ -105,9 +111,24 @@ function TimelineEvent({ index, text, title, img }) {
     }
   `)
 
+  let inlineStyles = {
+    gridRow: `${4 + 4 * index} / ${7 + 4 * index}`,
+  }
+
+  if (!isInViewport) {
+    if (index % 2 === 0) {
+      inlineStyles = { ...inlineStyles, ...fadeInLeftCornerExited }
+    } else {
+      inlineStyles = { ...inlineStyles, ...fadeInRightCornerExited }
+    }
+  } else {
+    inlineStyles = { ...inlineStyles, ...fadeInEntered }
+  }
+
   return (
     <div
-      style={{ gridRow: `${4 + 4 * index} / ${7 + 4 * index}` }}
+      ref={eventRef}
+      style={inlineStyles}
       className={
         index % 2 === 0 ? styles.event : `${styles.event} ${styles.eventRight}`
       }
