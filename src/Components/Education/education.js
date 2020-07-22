@@ -74,7 +74,13 @@ export default function Education() {
         <div className={`${styles.timeline__start}`}></div>
         {timeLine}
         {timeLineEvents.map((e, i) => (
-          <TimelineEvent title={e.title} text={e.text} key={i} index={i} />
+          <TimelineEvent
+            title={e.title}
+            text={e.text}
+            key={i}
+            index={i}
+            img={e.img}
+          />
         ))}
         <div
           style={{
@@ -92,24 +98,32 @@ export default function Education() {
 }
 
 function TimelineEvent({ index, text, title, img }) {
-  
   const eventRef = useRef()
   const isInViewport = useMeasure(eventRef)
 
   const data = useStaticQuery(graphql`
-    query education {
-      allImage: allFile(filter: { relativeDirectory: { eq: "Education" } }) {
+    query {
+      allEducationImages: allFile(
+        filter: { relativeDirectory: { eq: "Education" } }
+      ) {
         nodes {
-          base
           childImageSharp {
-            fixed(height: 70) {
+            fixed(width:140) {
               ...GatsbyImageSharpFixed
             }
           }
+          base
         }
       }
     }
   `)
+
+  let theImg = null;
+
+  if (img) {
+    const imgSrc = data.allEducationImages.nodes.find(n => n.base === img)
+    theImg = <Img fixed={imgSrc.childImageSharp.fixed}/>
+  }
 
   let inlineStyles = {
     gridRow: `${4 + 4 * index} / ${7 + 4 * index}`,
@@ -137,6 +151,7 @@ function TimelineEvent({ index, text, title, img }) {
         {title}
       </HeadingTwo>
       <p>{text}</p>
+      <a href="#">{theImg}</a>
     </div>
   )
 }

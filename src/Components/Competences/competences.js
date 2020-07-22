@@ -8,7 +8,7 @@ import CompetencesJSON from "../../../static/Competences/Competences.json"
 export default function Competences() {
   const data = useStaticQuery(graphql`
     query competences {
-      allImage: allFile(filter: { relativeDirectory: { eq: "Competences" } }) {
+      allCompetenceImages: allFile(filter: { relativeDirectory: { eq: "Competences" } }) {
         nodes {
           id
           base
@@ -24,7 +24,7 @@ export default function Competences() {
 
   Object.keys(CompetencesJSON).forEach(k => {
     CompetencesJSON[k] = CompetencesJSON[k].map(c => {
-      const { id, childImageSharp } = data.allImage.nodes.find(
+      const { id, childImageSharp } = data.allCompetenceImages.nodes.find(
         node => c.img === node.base
       )
 
