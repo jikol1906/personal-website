@@ -18,6 +18,7 @@
 .education {
   --timeline-width: 0.3rem;
   --timeline-dot-size: 6rem;
+  --timeline-curve:100rem;
 
   --event-dot-size: 4rem;
   --event-column-span: 3;
@@ -64,7 +65,7 @@
     grid-row: 2 / 4;
     grid-column: left-side-start/left-side-end;
     position: relative;
-    border-bottom-left-radius: 100vh;
+    border-bottom-left-radius: var(--timeline-curve);
     border-left: var(--timeline-width) solid $timeline-color;
     border-bottom: var(--timeline-width) solid $timeline-color;
 
@@ -86,7 +87,7 @@
     position: relative;
     grid-column: left-side-start / left-side-end;
 
-    border-top-left-radius: 100vh;
+    border-top-left-radius: var(--timeline-curve);
     border-left: var(--timeline-width) solid $timeline-color;
     border-top: var(--timeline-width) solid $timeline-color;
 
@@ -108,7 +109,7 @@
       border-right: var(--timeline-width) solid $timeline-color;
       border-left: none;
       border-top-left-radius: unset;
-      border-top-right-radius: 100vh;
+      border-top-right-radius: var(--timeline-curve);
 
       &::after {
         left: unset;
@@ -121,8 +122,8 @@
 
   &__right {
     grid-column: right-side-start/ right-side-end;
-    border-top-right-radius: 100vh;
-    border-bottom-right-radius: 100vh;
+    border-top-right-radius: var(--timeline-curve);
+    border-bottom-right-radius: var(--timeline-curve);
     border-top: var(--timeline-width) solid $timeline-color;
     border-bottom: var(--timeline-width) solid $timeline-color;
     border-right: var(--timeline-width) solid $timeline-color;
@@ -130,8 +131,8 @@
 
   &__left {
     grid-column: left-side-start / left-side-end;
-    border-top-left-radius: 100vh;
-    border-bottom-left-radius: 100vh;
+    border-top-left-radius: var(--timeline-curve);
+    border-bottom-left-radius: var(--timeline-curve);
     border-top: var(--timeline-width) solid $timeline-color;
     border-bottom: var(--timeline-width) solid $timeline-color;
     border-left: var(--timeline-width) solid $timeline-color;

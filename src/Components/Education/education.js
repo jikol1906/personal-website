@@ -44,10 +44,6 @@ const timeLineEvents = [
 ]
 
 export default function Education() {
-  // const timeLineRef = useRef()
-  // const timeLineIsInView = useMeasure(timeLineRef, 400)
-  // const matches = useMediaQuery("(max-width: 50em)")
-
   const timeLine = []
 
   for (let i = 0; i < timeLineEvents.length; i++) {
@@ -108,7 +104,7 @@ function TimelineEvent({ index, text, title, img }) {
       ) {
         nodes {
           childImageSharp {
-            fixed(width:140) {
+            fixed(width: 140) {
               ...GatsbyImageSharpFixed
             }
           }
@@ -118,31 +114,28 @@ function TimelineEvent({ index, text, title, img }) {
     }
   `)
 
-  let theImg = null;
+  let theImg = null
 
   if (img) {
     const imgSrc = data.allEducationImages.nodes.find(n => n.base === img)
-    theImg = <Img fixed={imgSrc.childImageSharp.fixed}/>
+    theImg = <Img fixed={imgSrc.childImageSharp.fixed} />
   }
 
-  let inlineStyles = {
-    gridRow: `${4 + 4 * index} / ${7 + 4 * index}`,
-  }
+  let inlineStyles = {}
 
+  //Add fade in animation
   if (!isInViewport) {
-    if (index % 2 === 0) {
-      inlineStyles = { ...inlineStyles, ...fadeInLeftCornerExited }
-    } else {
-      inlineStyles = { ...inlineStyles, ...fadeInRightCornerExited }
-    }
+    inlineStyles =
+      index % 2 === 0 ? fadeInLeftCornerExited : fadeInRightCornerExited
   } else {
-    inlineStyles = { ...inlineStyles, ...fadeInEntered }
+    inlineStyles = fadeInEntered
   }
+
 
   return (
     <div
       ref={eventRef}
-      style={inlineStyles}
+      style={{...inlineStyles,gridRow: `${4 + 4 * index} / ${7 + 4 * index}`}}
       className={
         index % 2 === 0 ? styles.event : `${styles.event} ${styles.eventRight}`
       }

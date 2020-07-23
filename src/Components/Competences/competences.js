@@ -22,11 +22,12 @@ export default function Competences() {
     }
   `)
 
-  Object.keys(CompetencesJSON).forEach(k => {
+  Object.keys(CompetencesJSON).forEach((k,i) => {
     CompetencesJSON[k] = CompetencesJSON[k].map(c => {
       const { id, childImageSharp } = data.allCompetenceImages.nodes.find(
         node => c.img === node.base
       )
+
 
       return (
         <Card
