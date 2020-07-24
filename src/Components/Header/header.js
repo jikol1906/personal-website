@@ -3,11 +3,12 @@ import styles from "./header.module.scss"
 import HeadingOne from "../../Typography/HeadingOne/headingOne"
 import HeadingTwo from "../../Typography/HeadingTwo/headingTwo"
 import {moveInLeftAnimation} from '../../animations'
+import Background from '../Background/Background'
 
 export default function Header() {
   return (
     <>
-    <div className={styles.background}></div>
+    <Background header/>
     <header id="home" className={styles.header}>
       
       <HeadingOne animation={moveInLeftAnimation}>Boris Grunwald</HeadingOne>

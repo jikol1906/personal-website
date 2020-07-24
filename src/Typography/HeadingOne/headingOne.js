@@ -8,7 +8,7 @@ const StyledHeadingOne = styled.h1`
   color: #fff;
   font-weight: 300;
   letter-spacing: 0.7rem;
-  ${props => props.animation && props.animation}
+  ${({animation}) => animation && animation}
 `
 
 export default function HeadingOne({ animation, children }) {
