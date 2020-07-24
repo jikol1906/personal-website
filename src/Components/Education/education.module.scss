@@ -43,6 +43,8 @@
     var(--timeline-width);
 
   grid-row-gap: var(--row-gap);
+
+  overflow: hidden;
 }
 
 .timeline {

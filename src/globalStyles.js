@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components"
+import { mq } from "./variables"
 
 const GlobalStyle = createGlobalStyle`
 :root {
@@ -12,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
     --color-primary-2: #1465c2;
     --color-secondary:#f4f4f4;
 
-    @media only screen and (max-width:$bp-small) {
+    ${mq.small} {
         //Layout
         --section-intersection-length:9rem;
         --section-padding-top-bottom:20rem;

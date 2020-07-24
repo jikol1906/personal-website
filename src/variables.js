@@ -8,6 +8,7 @@ export const breakpoints = {
 
 export const mq = {
   smallest: `@media only screen and (max-width: ${breakpoints.bpSmallest})`,
+  small: `@media only screen and (max-width: ${breakpoints.bpSmall})`,
 }
 
 export const colors = {
