@@ -16,6 +16,7 @@ import useMediaQuery from "../../Utils/useMediaQuery"
 import timeEv from "../../../static/TimelineEvents.json"
 import Img from "gatsby-image"
 import { removeUneven, removeEven } from "../../Utils/Helperfunctions"
+import Background from '../Background/Background'
 
 const timeLineEvents = [
   {
@@ -58,7 +59,7 @@ export default function Education() {
 
   return (
     <>
-      <div className={styles.background}></div>
+      <Background gridRow={'4/7'} type={'sectionLeft'}/>
       <section id="educations" className={styles.education}>
         <HeadingTwo
           underlined

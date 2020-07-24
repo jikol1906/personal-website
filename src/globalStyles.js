@@ -8,6 +8,8 @@ const GlobalStyle = createGlobalStyle`
     --section-padding-left-right:8rem;
 
     //Colors
+    --color-primary: #1a73da;
+    --color-primary-2: #1465c2;
     --color-secondary:#f4f4f4;
 
     @media only screen and (max-width:$bp-small) {

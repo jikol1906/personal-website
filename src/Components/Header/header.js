@@ -8,7 +8,7 @@ import Background from '../Background/Background'
 export default function Header() {
   return (
     <>
-    <Background header/>
+    <Background gridRow={'1/3'} type={'header'}/>
     <header id="home" className={styles.header}>
       
       <HeadingOne animation={moveInLeftAnimation}>Boris Grunwald</HeadingOne>

@@ -6,6 +6,6 @@
     minmax(2rem, 1fr) [full-end];
   grid-template-rows: [header-start] calc(
       100vh - var(--section-intersection-length)
-    ) repeat(4, var(--section-intersection-length) min-content);
+    ) repeat(6, var(--section-intersection-length) min-content);
   z-index: -2;
 }
