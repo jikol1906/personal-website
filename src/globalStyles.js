@@ -1,24 +1,36 @@
 import { createGlobalStyle } from "styled-components"
-import { mq } from "./variables"
+import {mq, globalVariables } from "./variables"
 
 const GlobalStyle = createGlobalStyle`
-:root {
-    //Layout
-    --section-intersection-length:15rem;
-    --section-padding-top-bottom:30rem;
-    --section-padding-left-right:8rem;
+    ${globalVariables}
 
-    //Colors
-    --color-primary: #1a73da;
-    --color-primary-2: #1465c2;
-    --color-secondary:#f4f4f4;
+    *,
+    *::before,
+    *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
 
-    ${mq.small} {
-        //Layout
-        --section-intersection-length:9rem;
-        --section-padding-top-bottom:20rem;
-        --section-padding-left-right:1rem;
     }
-}
+
+    html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+
+    ${mq.large} {
+        font-size:50%;
+    }
+
+    ${mq.smallest} {
+        font-size:45%;
+    }
+
+    }
+
+    body {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+    background: var(--color-secondary);
+    }
 `
 export default GlobalStyle

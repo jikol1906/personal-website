@@ -9,7 +9,7 @@ const StyledCard = styled.div`
   padding: 8rem;
   display: grid;
   border-radius: 10px;
-  box-shadow: ${props => props.theme.shadowLight};
+  box-shadow: ${props => props.theme.shadows.shadowLight};
   justify-items: center;
   align-items: center;
   grid-gap: 2rem;

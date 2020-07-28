@@ -6,17 +6,19 @@ import {
   fadeInEntered,
   fadeInRightCornerExited,
   fadeInLeftCornerExited,
-  expandFromTopExited,
-  expandFromTopEnteredDelay,
-  expandFromTopEntered,
-  fadeInEnteredDelay,
 } from "../../Utils/Transitions/transitions"
 import { useStaticQuery, graphql } from "gatsby"
 import useMediaQuery from "../../Utils/useMediaQuery"
 import timeEv from "../../../static/TimelineEvents.json"
 import Img from "gatsby-image"
 import { removeUneven, removeEven } from "../../Utils/Helperfunctions"
-import Background from '../Background/Background'
+import Background from "../Background/Background"
+import {
+  EducationSection,
+  EducationSectionHeader,
+  EducationSectionTimeline,
+  EducationTimelineEvent,
+} from "./EducationComponents"
 
 const timeLineEvents = [
   {
@@ -49,25 +51,21 @@ export default function Education() {
 
   for (let i = 0; i < timeLineEvents.length; i++) {
     timeLine.push(
-      <div
+      <EducationSectionTimeline
         key={i}
+        index={i}
         style={{ gridRow: `${3 + 4 * i} / ${8 + 4 * i}` }}
-        className={i % 2 === 0 ? styles.timeline__right : styles.timeline__left}
-      ></div>
+      ></EducationSectionTimeline>
     )
   }
 
   return (
     <>
-      <Background gridRow={'4/7'} type={'sectionLeft'}/>
-      <section id="educations" className={styles.education}>
-        <HeadingTwo
-          underlined
-          otherStyles={styles.title}
-          inlineStyles={{ gridColumn: "1/-1", gridRow: "1/2" }}
-        >
+      <Background gridRow={"4/7"} type={"sectionLeft"} />
+      <EducationSection>
+        <EducationSectionHeader underlined>
           Education Timeline
-        </HeadingTwo>
+        </EducationSectionHeader>
         <div className={`${styles.timeline__start}`}></div>
         {timeLine}
         {timeLineEvents.map((e, i) => (
@@ -89,7 +87,7 @@ export default function Education() {
             timeLineEvents.length % 2 === 0 && styles.timeline__endRight
           }`}
         ></div>
-      </section>
+      </EducationSection>
     </>
   )
 }
@@ -122,30 +120,18 @@ function TimelineEvent({ index, text, title, img }) {
     theImg = <Img fixed={imgSrc.childImageSharp.fixed} />
   }
 
-  let inlineStyles = {}
-
-  //Add fade in animation
-  if (!isInViewport) {
-    inlineStyles =
-      index % 2 === 0 ? fadeInLeftCornerExited : fadeInRightCornerExited
-  } else {
-    inlineStyles = fadeInEntered
-  }
-
-
   return (
-    <div
+    <EducationTimelineEvent
       ref={eventRef}
-      style={{...inlineStyles,gridRow: `${4 + 4 * index} / ${7 + 4 * index}`}}
-      className={
-        index % 2 === 0 ? styles.event : `${styles.event} ${styles.eventRight}`
-      }
+      show={isInViewport}
+      style={{ gridRow: `${4 + 4 * index} / ${7 + 4 * index}`}}
+      right={index % 2 !== 0}
     >
       <HeadingTwo underlined black>
         {title}
       </HeadingTwo>
       <p>{text}</p>
       <a href="#">{theImg}</a>
-    </div>
+    </EducationTimelineEvent>
   )
 }

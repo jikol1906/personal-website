@@ -1,3 +1,14 @@
+import {css} from 'styled-components';
+
+const exited = css`
+  opacity:0;
+`
+
+const leftExited = css`
+  ${exited}
+  transform:translateX(-20vw);
+`
+
 // #region fadeIn
 const fadeInExited = {
   opacity: "0",

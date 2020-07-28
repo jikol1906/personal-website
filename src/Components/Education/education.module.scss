@@ -2,50 +2,7 @@
   margin-bottom: 10rem;
 }
 
-.education {
-  --timeline-width: 0.3rem;
-  --timeline-dot-size: 6rem;
-  --timeline-curve:100rem;
 
-  --event-dot-size: 4rem;
-  --event-column-span: 3;
-  --event-padding: 5rem;
-
-  --row-height: 20rem;
-  --row-gap: 6rem;
-
-  @media only screen and (max-width: $bp-small) {
-    --timeline-dot-size: 3rem;
-    --event-dot-size: 2rem;
-    --row-height: 25rem;
-    --row-gap: 3rem;
-  }
-
-  padding: var(--section-padding-top-bottom) var(--section-padding-left-right);
-  grid-column: center-start / center-end;
-  grid-row: 5/6;
-  z-index: 2;
-
-  display: grid;
-  grid-template-columns:
-    [left-side-start]
-    repeat(3, 1fr)
-    [left-side-end right-side-start]
-    repeat(3, 1fr)
-    [right-side-end];
-
-  grid-template-rows:
-    min-content
-    var(--row-height)
-    var(--timeline-width);
-
-  grid-auto-rows: var(--row-height) var(--row-height) var(--row-height)
-    var(--timeline-width);
-
-  grid-row-gap: var(--row-gap);
-
-  overflow: hidden;
-}
 
 .timeline {
   $timeline-color: rgba($color-secondary, 0.7);

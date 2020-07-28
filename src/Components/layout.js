@@ -5,8 +5,10 @@ import GlobalStyle from "../globalStyles"
 import { ThemeProvider } from "styled-components"
 
 const theme = {
-  shadowDark: "0 1.2rem 1.4rem rgba(0, 0, 0, 0.2);",
-  shadowLight: "0 .7rem 2rem rgba(0, 0, 0, 0.1);",
+  shadows: {
+    shadowDark: "0 1.2rem 1.4rem rgba(0, 0, 0, 0.2);",
+    shadowLight: "0 .7rem 2rem rgba(0, 0, 0, 0.1);",
+  },
 }
 
 export default function Layout({ children }) {

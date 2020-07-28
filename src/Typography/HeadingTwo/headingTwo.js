@@ -1,14 +1,15 @@
 import React from "react"
 import styles from "./headingTwo.module.scss"
 
-import styled from "styled-components"
+import styled,{css} from "styled-components"
 
-const StyledHeadingOne = styled.h1`
-  font-size: 6rem;
-  text-transform: uppercase;
-  color: #fff;
+export const StyledHeadingTwo = styled.h2`
+  font-size: 4rem;
+  color: ${({black}) => black ? '#000' : '#fff'};
   font-weight: 300;
-  letter-spacing: 0.7rem;
+  letter-spacing: .5rem;
+  text-transform: uppercase;
+  ${({underlined}) => underlined && css`border-bottom: 1px solid currentColor;`}
   ${({ animation }) => animation && animation}
 `
 
