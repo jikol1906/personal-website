@@ -19,5 +19,6 @@
 .cards {
     display: grid;
     grid-template-columns: repeat(auto-fill,minmax(33rem,1fr));
-    grid-gap:3rem;
+    grid-auto-rows: 35rem;
+    grid-gap:6rem;
 }

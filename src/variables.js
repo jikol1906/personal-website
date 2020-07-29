@@ -41,6 +41,8 @@ export const globalVariables = css`
     --color-primary: #1a73da;
     --color-primary-2: #1465c2;
 
+    
+
     --color-secondary: #f4f4f4;
     --color-secondary-2: #e4e4e4;
 
