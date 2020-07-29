@@ -2,16 +2,9 @@ import React, { useEffect, useState, useRef } from "react"
 import styles from "./education.module.scss"
 import HeadingTwo from "../../Typography/HeadingTwo/headingTwo"
 import useMeasure from "../../Utils/useMeasure"
-import {
-  fadeInEntered,
-  fadeInRightCornerExited,
-  fadeInLeftCornerExited,
-} from "../../Utils/Transitions/transitions"
 import { useStaticQuery, graphql } from "gatsby"
-import useMediaQuery from "../../Utils/useMediaQuery"
-import timeEv from "../../../static/TimelineEvents.json"
 import Img from "gatsby-image"
-import { removeUneven, removeEven } from "../../Utils/Helperfunctions"
+
 import Background from "../Background/Background"
 import {
   EducationSection,
@@ -42,7 +35,7 @@ const timeLineEvents = [
   },
   {
     title: "Elementary School",
-    text: "",
+    text: "At Skolen ved Søerne/Skolen ved Bülowsvej",
   },
 ]
 
@@ -91,6 +84,8 @@ export default function Education() {
     </>
   )
 }
+
+
 
 function TimelineEvent({ index, text, title, img }) {
   const eventRef = useRef()

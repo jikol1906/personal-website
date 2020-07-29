@@ -15,6 +15,21 @@ export const mq = {
   small: `@media only screen and (max-width: ${breakpoints.bpSmall})`,
 }
 
+export const margins = {
+  small: "2rem;",
+  medium: "3rem;",
+  big: "5rem;",
+}
+
+export const shadows = {
+  shadowDark: "0 1.2rem 1.4rem rgba(0, 0, 0, 0.2);",
+  shadowLight: "0 .7rem 2rem rgba(0, 0, 0, 0.1);",
+}
+
+export const fontSizes = {
+  default: "1.6rem;",
+}
+
 export const globalVariables = css`
   :root {
     //Layout

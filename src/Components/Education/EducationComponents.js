@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components"
-import { mq } from "../../variables"
+import { mq, margins, fontSizes } from "../../variables"
 import { fadeInEntered, fadeInLeftCornerExited } from "../../transitions"
 import { StyledHeadingTwo } from "../../Typography/HeadingTwo/headingTwo"
 import { isEvenNum } from "../../Utils/Helperfunctions"
@@ -68,8 +68,8 @@ export const EducationTimelineEvent = styled.div`
   padding: var(--event-padding);
 
   p {
-    font-size: 2rem;
-    margin-bottom: 5rem;
+    font-size: ${fontSizes.default}
+    margin-bottom: ${margins.big}
   }
 
   h2 {
