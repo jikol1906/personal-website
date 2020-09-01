@@ -10,11 +10,10 @@ const cardSide = css`
   height: 100%;
   width: 100%;
   backface-visibility: hidden;
-  transition: transform var(--transition-speed) ease-in-out, box-shadow .4s;
+  transition: transform var(--transition-speed) ease-in-out, box-shadow 0.4s;
   padding: var(--card-padding);
   cursor: pointer;
 
-  
   box-shadow: ${shadows.shadowLight};
 
   &:hover {
@@ -31,7 +30,7 @@ const CardFrontSide = styled.div`
   color: var(--front-side-color);
   background: var(--front-side-bgColor);
   position: relative;
-  transform: ${({ clicked }) => (clicked ? "rotateX(180deg);" : "rotateX(0);")}
+  transform: ${({ clicked }) => (clicked ? "rotateY(180deg);" : "rotateY(0);")}
   z-index: 2;
 `
 
@@ -45,13 +44,13 @@ const CardBackSide = styled.div`
   grid-template-rows: min-content 1rem;
   grid-gap:3rem;
   background: var(--back-side-bgColor);
-  transform: ${({ clicked }) => (clicked ? "rotateX(0);" : "rotateX(-180deg);")}
+  transform: ${({ clicked }) => (clicked ? "rotateY(0);" : "rotateY(-180deg);")}
   z-index: 1;
 `
 
 const StyledCard = styled.div`
   --gradient-angle: 180deg;
-  --transition-speed: 0.6s;
+  --transition-speed: 0.4s;
   --front-side-bgColor: #fff;
   --back-side-bgColor: var(--color-primary);
   --front-side-color: white;
@@ -73,22 +72,36 @@ const BacksideParagraph = styled.h3`
 `
 
 const SkillLevel = styled.div`
-  background: linear-gradient(
-    90deg,
-    rgb(89, 211, 139) 0%,
-    rgb(77, 239, 121) 50%
-  );
-  border-radius: 5px;
-  width: ${({skillLevel}) => `${skillLevel}%;`}
-  transition: transform 0.7s;
-  transform-origin: left;
-  ${({ active }) =>
-    active
-      ? css`
-          transition-delay:.4s;
-          transform: scaleX(1);
-        `
-      : "transform:scaleX(0);"}
+  --border-radius: 5px;
+
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: var(--border-radius);
+
+  &::after {
+    content: "";
+    background: linear-gradient(
+      90deg,
+      rgb(89, 211, 139) 0%,
+      rgb(77, 239, 121) 50%
+    );
+    border-radius: var(--border-radius);
+    display: block;
+    height: 100%;
+    transition: transform 0.7s ease-out;
+    transform-origin: left;
+    width: ${({ skillLevel }) => `${skillLevel}%;`}
+      ${({ active }) =>
+        active
+          ? css`
+              transition-delay: calc(var(--transition-speed) - 0.2s);
+              transform: scaleX(1);
+            `
+          : css`
+              transition-delay: var(--transition-speed);
+              transition-duration: 0;
+              transform: scaleX(0);
+            `};
+  }
 `
 
 export default function Card({ img, title, text, skillLvl }) {

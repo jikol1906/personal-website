@@ -24,14 +24,14 @@ export default function Competences() {
 
   Object.keys(CompetencesJSON).forEach((k,i) => {
     CompetencesJSON[k] = CompetencesJSON[k].map(c => {
-      const { childImageSharp } = data.allCompetenceImages.nodes.find(
+      const { id, childImageSharp } = data.allCompetenceImages.nodes.find(
         node => c.img === node.base
       )
 
 
       return (
         <Card
-          key={i}
+          key={id}
           text={c.text}
           title={c.title}
           img={childImageSharp.fixed}
