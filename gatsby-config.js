@@ -11,6 +11,7 @@ module.exports = {
     description: `Frontend developer with experience in various web technologies`,
     author: `Boris Grunwald`,
   },
+  pathPrefix: "/personal-website",
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
