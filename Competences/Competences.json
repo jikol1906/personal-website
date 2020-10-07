@@ -1,0 +1,68 @@
+{
+  "languages": [
+    {
+      "img": "JS.png",
+      "title": "Javascript",
+      "text": ""
+    },
+    {
+      "img": "Node.png",
+      "title": "Node.js",
+      "text": ""
+    },
+    {
+      "img": "Typescript.png",
+      "title": "Typescript",
+      "text": ""
+    },
+    {
+      "img": "Html.png",
+      "title": "HTML",
+      "text": ""
+    },
+    {
+      "img": "Css.png",
+      "title": "CSS",
+      "text": "I have a "
+    },
+    {
+      "img": "java.png",
+      "title": "Java",
+      "text": ""
+    },
+    {
+      "img": "Csharp.png",
+      "title": "C#/ASP.NET Core",
+      "text": ""
+    }
+  ],
+  "frameworks": [
+    {
+      "img": "react.png",
+      "title": "React",
+      "text": "I have extensive knowledge in React and have used it for most of my personal projects. I have for example built this page using Gatsby.js which is based on React"
+    },
+    {
+      "img": "Angular.png",
+      "title": "Angular",
+      "text": ""
+    },
+    {
+      "img": "Express.png",
+      "title": "ExpressJS",
+      "text": ""
+    },
+    {
+      "img": "Gatsby.png",
+      "title": "GatsbyJS",
+      "text": ""
+    }
+  ],
+  "versionControl": [
+    {
+      "img": "git.png",
+      "title": "Git",
+      "text": ""
+    }
+  ]
+}

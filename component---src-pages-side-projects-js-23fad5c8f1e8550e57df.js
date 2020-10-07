@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[4],{"/TVD":function(n,e,t){"use strict";t.r(e),t.d(e,"default",(function(){return a}));var c=t("q1tI"),r=t.n(c),u=t("caCR");function a(){return r.a.createElement(u.a,null,"Side projects")}}}]);
+//# sourceMappingURL=component---src-pages-side-projects-js-23fad5c8f1e8550e57df.js.map
