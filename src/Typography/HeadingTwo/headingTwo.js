@@ -7,7 +7,6 @@ export const StyledHeadingTwo = styled.h2`
   font-size: 4rem;
   color: ${({black}) => black ? '#000' : '#fff'};
   font-weight: 300;
-  letter-spacing: .5rem;
   ${({underlined}) => underlined && css`border-bottom: 1px solid currentColor;`}
   ${({ animation }) => animation && animation}
 `

@@ -12,7 +12,7 @@ export default function Header() {
     <header id="home" className={styles.header}>
       
       <HeadingOne animation={moveInLeftAnimation}>Boris Grunwald</HeadingOne>
-      <HeadingTwo underlined otherStyles={styles.subheading}>
+      <HeadingTwo otherStyles={styles.subheading}>
         Software Developer
       </HeadingTwo>
     </header>

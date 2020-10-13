@@ -55,8 +55,8 @@ export default function Education() {
   return (
     <>
       <Background gridRow={"4/7"} type={"sectionLeft"} />
-      <EducationSection>
-        <EducationSectionHeader underlined>
+      <EducationSection id="educations">
+        <EducationSectionHeader>
           Education Timeline
         </EducationSectionHeader>
         <div className={`${styles.timeline__start}`}></div>
@@ -89,7 +89,7 @@ export default function Education() {
 
 function TimelineEvent({ index, text, title, img }) {
   const eventRef = useRef()
-  const isInViewport = useMeasure(eventRef)
+  const isInViewport = useMeasure(eventRef,80)
 
   const data = useStaticQuery(graphql`
     query {
@@ -104,7 +104,7 @@ function TimelineEvent({ index, text, title, img }) {
           }
           base
         }
-      }
+      } 
     }
   `)
 
@@ -122,7 +122,7 @@ function TimelineEvent({ index, text, title, img }) {
       style={{ gridRow: `${4 + 4 * index} / ${7 + 4 * index}`}}
       right={index % 2 !== 0}
     >
-      <HeadingTwo underlined black>
+      <HeadingTwo black>
         {title}
       </HeadingTwo>
       <p>{text}</p>

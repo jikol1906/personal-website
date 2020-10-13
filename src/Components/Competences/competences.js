@@ -4,6 +4,7 @@ import HeadingTwo from "../../Typography/HeadingTwo/headingTwo"
 import Card from "../Card/Card"
 import { useStaticQuery, graphql } from "gatsby"
 import CompetencesJSON from "../../../static/Competences/Competences.json"
+import HeadingThree from '../../Typography/HeadingThree/HeadingThree'
 
 export default function Competences() {
   const data = useStaticQuery(graphql`
@@ -44,14 +45,14 @@ export default function Competences() {
 
   return (
     <section id="competences" className={styles.competences}>
-      <HeadingTwo underlined black>
+      <HeadingTwo black>
         Competences
       </HeadingTwo>
-      <HeadingTwo black>Technologies / Programming Langauges</HeadingTwo>
+      <HeadingThree black>Technologies / Programming Langauges</HeadingThree>
       <div className={styles.cards}>{CompetencesJSON.languages}</div>
-      <HeadingTwo black>Frameworks / Libraries</HeadingTwo>
+      <HeadingThree black>Frameworks / Libraries</HeadingThree>
       <div className={styles.cards}>{CompetencesJSON.frameworks}</div>
-      <HeadingTwo black>Version Control</HeadingTwo>
+      <HeadingThree black>Version Control</HeadingThree>
       <div className={styles.cards}>{CompetencesJSON.versionControl}</div>
     </section>
   )

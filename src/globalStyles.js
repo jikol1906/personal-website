@@ -26,7 +26,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        font-family: 'Quicksand', sans-serif;
+        font-family: 'Open sans', sans-serif;
         font-weight: 400;
         background: var(--color-secondary);
     }

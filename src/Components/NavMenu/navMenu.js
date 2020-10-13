@@ -30,6 +30,7 @@ function NavItem({ children, to }) {
     <li className={styles.item}>
       <button className={styles.link} onClick={() => scrollTo(`#${to}`)}>
         {children}
+        
       </button>
     </li>
   )

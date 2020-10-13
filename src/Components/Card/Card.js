@@ -111,7 +111,7 @@ export default function Card({ img, title, text, skillLvl }) {
     <StyledCard onClick={() => setClicked(prev => !prev)}>
       <CardFrontSide clicked={clicked}>
         <HeadingThree black>{title}</HeadingThree>
-        <Img fixed={img} />
+        <Img fixed={img} alt={title} />
       </CardFrontSide>
       <CardBackSide clicked={clicked}>
         <BacksideParagraph>Skill level:</BacksideParagraph>

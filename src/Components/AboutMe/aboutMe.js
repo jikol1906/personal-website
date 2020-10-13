@@ -25,7 +25,6 @@ export default function AboutMe() {
     <section id="about" className={styles.about}>
       <HeadingTwo
         inlineStyles={!isInViewport ? fadeInTopExited : fadeInEnteredLargeDelay}
-        underlined
         black
       >
         About Me
@@ -35,20 +34,25 @@ export default function AboutMe() {
         className={styles.text}
         style={!isInViewport ? fadeInLeftExited : fadeInEntered}
       >
-        Jeg studerer Softwareteknologi (Diplomingeniør) på DTU. Programmering er
-        en af mine store passioner, og har, lige siden jeg startede, altid
-        interesseret mig. Når jeg står over for en løsning, der skal
-        implementeres, så ser jeg en spændende, intellektuel udfordring, og ikke
-        bare en ny kedelig arbejdsopgave, der skal overstås. I study Software
-        Technology at DTU
+        I study a Masters in Computer Science and Engineering at DTU.
+        Programming is one of my big passions and have, ever since I started,
+        always interested me. When I stand before a solution, that has to be
+        implemented, I see an exciting intellectual challenge and not just a
+        boring task I have to get through.
       </p>
       <ul
         className={styles.detailsList}
         style={!isInViewport ? fadeInRightExited : fadeInEnteredDelay}
       >
-        <li><strong>Age:</strong> {calculateAge()}</li>
-        <li><strong>Email:</strong> borisgrunwald@gmail.com</li>
-        <li><strong>Languages:</strong> English/Danish</li>
+        <li>
+          <strong>Age:</strong> {calculateAge()}
+        </li>
+        <li>
+          <strong>Email:</strong> borisgrunwald@gmail.com
+        </li>
+        <li>
+          <strong>Languages:</strong> English/Danish/ (a little) German
+        </li>
       </ul>
     </section>
   )

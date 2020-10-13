@@ -31,18 +31,38 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-webfonts`,
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
-        fonts: {
-          google: [
-            {
-              family: "Quicksand",
-              variants: ["300", "400", "700"],
-            },
-          ],
-        },
+        fonts: [
+          {
+            family: `Nunito`,
+            variants: [`400`, `700`],
+            subsets: [`latin`],
+          },
+          {
+            family: `Open Sans`,
+            variants: [`400`, `700`, `800`],
+          },
+          {
+            family: `Acme`,
+            variants: [`400`],
+          },
+        ],
       },
-    }
+    },
+    // {
+    //   resolve: `gatsby-plugin-webfonts`,
+    //   options: {
+    //     fonts: {
+    //       google: [
+    //         {
+    //           family: "Quicksand",
+    //           variants: ["300", "400", "700"],
+    //         },
+    //       ],
+    //     },
+    //   },
+    // }
     // {
     //   resolve: `gatsby-plugin-manifest`,
     //   options: {

@@ -13,7 +13,7 @@ export const EducationSection = styled.section`
 
   --event-dot-size: 4rem;
   --event-column-span: 3;
-  --event-padding: 5rem;
+  --event-padding: 8rem;
 
   --row-height: 20rem;
   --row-gap: 6rem;
@@ -58,13 +58,19 @@ export const EducationSectionHeader = styled(StyledHeadingTwo)`
 export const EducationSectionTimelineStart = styled.div``
 
 export const EducationTimelineEvent = styled.div`
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
   grid-column: 1/6;
   position: relative;
   background: var(--color-secondary);
-  min-height: calc(var(--row-height) * 2.3);
+  height: 60rem;
+  width: 100%;
   text-align: center;
   align-self: center;
-  border-radius: 10rem;
+  justify-self:center;
+  border-radius: 50%;
   padding: var(--event-padding);
 
   p {
